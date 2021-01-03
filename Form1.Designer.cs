@@ -257,6 +257,7 @@
             this.buttonEraser.TabIndex = 6;
             this.buttonEraser.Text = "Eraser";
             this.buttonEraser.UseVisualStyleBackColor = false;
+            this.buttonEraser.Click += new System.EventHandler(this.buttonEraser_Click);
             // 
             // Form1
             // 
