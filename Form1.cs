@@ -18,6 +18,8 @@ namespace csharp_vathmologoumeni_2
         }
 
         int QuickSettingsSelection = 0;
+        Graphics graphics;
+        Pen pen;
 
         private void Form1_Load(object sender, EventArgs e)
         {

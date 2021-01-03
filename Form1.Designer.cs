@@ -169,11 +169,12 @@
             // 
             // groupBoxDrawingSettings
             // 
+            this.groupBoxDrawingSettings.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.groupBoxDrawingSettings.Controls.Add(this.buttonEraseEverything);
             this.groupBoxDrawingSettings.Controls.Add(this.buttonSelectBackgroundColour);
             this.groupBoxDrawingSettings.Controls.Add(this.buttonPenColour);
             this.groupBoxDrawingSettings.Controls.Add(this.buttonPenSize);
-            this.groupBoxDrawingSettings.Location = new System.Drawing.Point(12, 354);
+            this.groupBoxDrawingSettings.Location = new System.Drawing.Point(12, 307);
             this.groupBoxDrawingSettings.Name = "groupBoxDrawingSettings";
             this.groupBoxDrawingSettings.Size = new System.Drawing.Size(246, 182);
             this.groupBoxDrawingSettings.TabIndex = 8;
@@ -208,6 +209,7 @@
             // 
             // buttonExit
             // 
+            this.buttonExit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.buttonExit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.buttonExit.ForeColor = System.Drawing.Color.White;
             this.buttonExit.Location = new System.Drawing.Point(12, 732);
@@ -230,7 +232,7 @@
             // 
             this.saveAsToolStripMenuItem.Name = "saveAsToolStripMenuItem";
             this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.saveAsToolStripMenuItem.Text = "Save As";
+            this.saveAsToolStripMenuItem.Text = "Save To Database";
             // 
             // buttonEraseEverything
             // 
@@ -275,7 +277,7 @@
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form1";
+            this.Text = "Canvas";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
