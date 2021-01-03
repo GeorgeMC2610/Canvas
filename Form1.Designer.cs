@@ -33,11 +33,17 @@
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.buttonFreestyleDraw = new System.Windows.Forms.Button();
             this.buttonLineSegment = new System.Windows.Forms.Button();
+            this.buttonEllipse = new System.Windows.Forms.Button();
+            this.buttonCircle = new System.Windows.Forms.Button();
+            this.groupBoxQuickSettings = new System.Windows.Forms.GroupBox();
+            this.buttonPenSize = new System.Windows.Forms.Button();
+            this.groupBoxDrawingSettings = new System.Windows.Forms.GroupBox();
+            this.buttonPenColour = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.buttonExit = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
-            this.groupBox1.SuspendLayout();
+            this.groupBoxQuickSettings.SuspendLayout();
+            this.groupBoxDrawingSettings.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -78,7 +84,7 @@
             this.buttonFreestyleDraw.Location = new System.Drawing.Point(6, 27);
             this.buttonFreestyleDraw.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.buttonFreestyleDraw.Name = "buttonFreestyleDraw";
-            this.buttonFreestyleDraw.Size = new System.Drawing.Size(221, 28);
+            this.buttonFreestyleDraw.Size = new System.Drawing.Size(234, 28);
             this.buttonFreestyleDraw.TabIndex = 2;
             this.buttonFreestyleDraw.Text = "Freestyle Draw";
             this.buttonFreestyleDraw.UseVisualStyleBackColor = false;
@@ -90,10 +96,84 @@
             this.buttonLineSegment.Location = new System.Drawing.Point(6, 63);
             this.buttonLineSegment.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.buttonLineSegment.Name = "buttonLineSegment";
-            this.buttonLineSegment.Size = new System.Drawing.Size(221, 28);
+            this.buttonLineSegment.Size = new System.Drawing.Size(234, 28);
             this.buttonLineSegment.TabIndex = 3;
             this.buttonLineSegment.Text = "Line Segment";
             this.buttonLineSegment.UseVisualStyleBackColor = false;
+            // 
+            // buttonEllipse
+            // 
+            this.buttonEllipse.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.buttonEllipse.ForeColor = System.Drawing.Color.Black;
+            this.buttonEllipse.Location = new System.Drawing.Point(6, 99);
+            this.buttonEllipse.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.buttonEllipse.Name = "buttonEllipse";
+            this.buttonEllipse.Size = new System.Drawing.Size(234, 28);
+            this.buttonEllipse.TabIndex = 4;
+            this.buttonEllipse.Text = "Ellipse";
+            this.buttonEllipse.UseVisualStyleBackColor = false;
+            // 
+            // buttonCircle
+            // 
+            this.buttonCircle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.buttonCircle.ForeColor = System.Drawing.Color.Black;
+            this.buttonCircle.Location = new System.Drawing.Point(6, 135);
+            this.buttonCircle.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.buttonCircle.Name = "buttonCircle";
+            this.buttonCircle.Size = new System.Drawing.Size(234, 28);
+            this.buttonCircle.TabIndex = 5;
+            this.buttonCircle.Text = "Circle";
+            this.buttonCircle.UseVisualStyleBackColor = false;
+            // 
+            // groupBoxQuickSettings
+            // 
+            this.groupBoxQuickSettings.Controls.Add(this.buttonFreestyleDraw);
+            this.groupBoxQuickSettings.Controls.Add(this.buttonCircle);
+            this.groupBoxQuickSettings.Controls.Add(this.buttonLineSegment);
+            this.groupBoxQuickSettings.Controls.Add(this.buttonEllipse);
+            this.groupBoxQuickSettings.ForeColor = System.Drawing.Color.Black;
+            this.groupBoxQuickSettings.Location = new System.Drawing.Point(12, 32);
+            this.groupBoxQuickSettings.Name = "groupBoxQuickSettings";
+            this.groupBoxQuickSettings.Size = new System.Drawing.Size(246, 178);
+            this.groupBoxQuickSettings.TabIndex = 6;
+            this.groupBoxQuickSettings.TabStop = false;
+            this.groupBoxQuickSettings.Text = "Quick Settings";
+            // 
+            // buttonPenSize
+            // 
+            this.buttonPenSize.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.buttonPenSize.ForeColor = System.Drawing.Color.Black;
+            this.buttonPenSize.Location = new System.Drawing.Point(6, 27);
+            this.buttonPenSize.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.buttonPenSize.Name = "buttonPenSize";
+            this.buttonPenSize.Size = new System.Drawing.Size(234, 28);
+            this.buttonPenSize.TabIndex = 7;
+            this.buttonPenSize.Text = "Select Pen Size";
+            this.buttonPenSize.UseVisualStyleBackColor = false;
+            // 
+            // groupBoxDrawingSettings
+            // 
+            this.groupBoxDrawingSettings.Controls.Add(this.button1);
+            this.groupBoxDrawingSettings.Controls.Add(this.buttonPenColour);
+            this.groupBoxDrawingSettings.Controls.Add(this.buttonPenSize);
+            this.groupBoxDrawingSettings.Location = new System.Drawing.Point(12, 255);
+            this.groupBoxDrawingSettings.Name = "groupBoxDrawingSettings";
+            this.groupBoxDrawingSettings.Size = new System.Drawing.Size(246, 142);
+            this.groupBoxDrawingSettings.TabIndex = 8;
+            this.groupBoxDrawingSettings.TabStop = false;
+            this.groupBoxDrawingSettings.Text = "Drawing Settings";
+            // 
+            // buttonPenColour
+            // 
+            this.buttonPenColour.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.buttonPenColour.ForeColor = System.Drawing.Color.Black;
+            this.buttonPenColour.Location = new System.Drawing.Point(6, 63);
+            this.buttonPenColour.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.buttonPenColour.Name = "buttonPenColour";
+            this.buttonPenColour.Size = new System.Drawing.Size(234, 28);
+            this.buttonPenColour.TabIndex = 8;
+            this.buttonPenColour.Text = "Select Pen Colour";
+            this.buttonPenColour.UseVisualStyleBackColor = false;
             // 
             // button1
             // 
@@ -102,36 +182,22 @@
             this.button1.Location = new System.Drawing.Point(6, 99);
             this.button1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(221, 28);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "Ellipse";
+            this.button1.Size = new System.Drawing.Size(234, 28);
+            this.button1.TabIndex = 9;
+            this.button1.Text = "Select Background Colour";
             this.button1.UseVisualStyleBackColor = false;
             // 
-            // button2
+            // buttonExit
             // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.button2.ForeColor = System.Drawing.Color.Black;
-            this.button2.Location = new System.Drawing.Point(6, 135);
-            this.button2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(221, 28);
-            this.button2.TabIndex = 5;
-            this.button2.Text = "Circle";
-            this.button2.UseVisualStyleBackColor = false;
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.buttonFreestyleDraw);
-            this.groupBox1.Controls.Add(this.button2);
-            this.groupBox1.Controls.Add(this.buttonLineSegment);
-            this.groupBox1.Controls.Add(this.button1);
-            this.groupBox1.ForeColor = System.Drawing.Color.Black;
-            this.groupBox1.Location = new System.Drawing.Point(12, 32);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(246, 178);
-            this.groupBox1.TabIndex = 6;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Quick Settings";
+            this.buttonExit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.buttonExit.ForeColor = System.Drawing.Color.White;
+            this.buttonExit.Location = new System.Drawing.Point(12, 732);
+            this.buttonExit.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.buttonExit.Name = "buttonExit";
+            this.buttonExit.Size = new System.Drawing.Size(83, 33);
+            this.buttonExit.TabIndex = 9;
+            this.buttonExit.Text = "Exit";
+            this.buttonExit.UseVisualStyleBackColor = false;
             // 
             // Form1
             // 
@@ -139,7 +205,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(1782, 778);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.buttonExit);
+            this.Controls.Add(this.groupBoxDrawingSettings);
+            this.Controls.Add(this.groupBoxQuickSettings);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.menuStrip1);
             this.Font = new System.Drawing.Font("Microsoft YaHei", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -150,7 +218,8 @@
             this.Text = "Form1";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
+            this.groupBoxQuickSettings.ResumeLayout(false);
+            this.groupBoxDrawingSettings.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -163,9 +232,14 @@
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
         private System.Windows.Forms.Button buttonFreestyleDraw;
         private System.Windows.Forms.Button buttonLineSegment;
+        private System.Windows.Forms.Button buttonEllipse;
+        private System.Windows.Forms.Button buttonCircle;
+        private System.Windows.Forms.GroupBox groupBoxQuickSettings;
+        private System.Windows.Forms.Button buttonPenSize;
+        private System.Windows.Forms.GroupBox groupBoxDrawingSettings;
+        private System.Windows.Forms.Button buttonPenColour;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Button buttonExit;
     }
 }
 
