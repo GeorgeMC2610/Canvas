@@ -82,5 +82,23 @@ namespace csharp_vathmologoumeni_2
             buttonEraser.BackColor = Color.Maroon;
             buttonEraser.ForeColor = Color.White;
         }
+
+        private void buttonExit_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void buttonPenColour_Click(object sender, EventArgs e)
+        {
+            if (colorDialog1.ShowDialog() == DialogResult.Cancel)
+                return;
+
+            buttonPenColour.BackColor = colorDialog1.Color;
+
+            if (buttonPenColour.BackColor.GetBrightness() > 0.45)
+                buttonPenColour.ForeColor = Color.Black;
+            else
+                buttonPenColour.ForeColor = Color.White;
+        }
     }
 }

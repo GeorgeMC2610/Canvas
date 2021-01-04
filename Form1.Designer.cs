@@ -30,21 +30,22 @@
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveAsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.buttonFreestyleDraw = new System.Windows.Forms.Button();
             this.buttonLineSegment = new System.Windows.Forms.Button();
             this.buttonEllipse = new System.Windows.Forms.Button();
             this.buttonCircle = new System.Windows.Forms.Button();
             this.groupBoxQuickSettings = new System.Windows.Forms.GroupBox();
+            this.buttonEraser = new System.Windows.Forms.Button();
             this.buttonPenSize = new System.Windows.Forms.Button();
             this.groupBoxDrawingSettings = new System.Windows.Forms.GroupBox();
-            this.buttonPenColour = new System.Windows.Forms.Button();
-            this.buttonSelectBackgroundColour = new System.Windows.Forms.Button();
-            this.buttonExit = new System.Windows.Forms.Button();
-            this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.saveAsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.buttonEraseEverything = new System.Windows.Forms.Button();
-            this.buttonEraser = new System.Windows.Forms.Button();
+            this.buttonSelectBackgroundColour = new System.Windows.Forms.Button();
+            this.buttonPenColour = new System.Windows.Forms.Button();
+            this.buttonExit = new System.Windows.Forms.Button();
+            this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.menuStrip1.SuspendLayout();
             this.groupBoxQuickSettings.SuspendLayout();
             this.groupBoxDrawingSettings.SuspendLayout();
@@ -75,6 +76,20 @@
             this.menuStrip1.Size = new System.Drawing.Size(1782, 24);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
+            // 
+            // fileToolStripMenuItem
+            // 
+            this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.saveAsToolStripMenuItem});
+            this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
+            this.fileToolStripMenuItem.Text = "File";
+            // 
+            // saveAsToolStripMenuItem
+            // 
+            this.saveAsToolStripMenuItem.Name = "saveAsToolStripMenuItem";
+            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
+            this.saveAsToolStripMenuItem.Text = "Save To Database";
             // 
             // helpToolStripMenuItem
             // 
@@ -154,6 +169,20 @@
             this.groupBoxQuickSettings.TabStop = false;
             this.groupBoxQuickSettings.Text = "Quick Settings";
             // 
+            // buttonEraser
+            // 
+            this.buttonEraser.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.buttonEraser.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.buttonEraser.ForeColor = System.Drawing.Color.Black;
+            this.buttonEraser.Location = new System.Drawing.Point(6, 172);
+            this.buttonEraser.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.buttonEraser.Name = "buttonEraser";
+            this.buttonEraser.Size = new System.Drawing.Size(234, 32);
+            this.buttonEraser.TabIndex = 6;
+            this.buttonEraser.Text = "Eraser";
+            this.buttonEraser.UseVisualStyleBackColor = false;
+            this.buttonEraser.Click += new System.EventHandler(this.buttonEraser_Click);
+            // 
             // buttonPenSize
             // 
             this.buttonPenSize.BackColor = System.Drawing.Color.Silver;
@@ -181,18 +210,18 @@
             this.groupBoxDrawingSettings.TabStop = false;
             this.groupBoxDrawingSettings.Text = "Drawing Settings";
             // 
-            // buttonPenColour
+            // buttonEraseEverything
             // 
-            this.buttonPenColour.BackColor = System.Drawing.Color.Silver;
-            this.buttonPenColour.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.buttonPenColour.ForeColor = System.Drawing.Color.Black;
-            this.buttonPenColour.Location = new System.Drawing.Point(6, 63);
-            this.buttonPenColour.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.buttonPenColour.Name = "buttonPenColour";
-            this.buttonPenColour.Size = new System.Drawing.Size(234, 32);
-            this.buttonPenColour.TabIndex = 8;
-            this.buttonPenColour.Text = "Select Pen Colour";
-            this.buttonPenColour.UseVisualStyleBackColor = false;
+            this.buttonEraseEverything.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.buttonEraseEverything.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.buttonEraseEverything.ForeColor = System.Drawing.Color.White;
+            this.buttonEraseEverything.Location = new System.Drawing.Point(6, 135);
+            this.buttonEraseEverything.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.buttonEraseEverything.Name = "buttonEraseEverything";
+            this.buttonEraseEverything.Size = new System.Drawing.Size(234, 32);
+            this.buttonEraseEverything.TabIndex = 10;
+            this.buttonEraseEverything.Text = "Erase Everything From Canvas";
+            this.buttonEraseEverything.UseVisualStyleBackColor = false;
             // 
             // buttonSelectBackgroundColour
             // 
@@ -207,6 +236,20 @@
             this.buttonSelectBackgroundColour.Text = "Select Background Colour";
             this.buttonSelectBackgroundColour.UseVisualStyleBackColor = false;
             // 
+            // buttonPenColour
+            // 
+            this.buttonPenColour.BackColor = System.Drawing.Color.Silver;
+            this.buttonPenColour.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.buttonPenColour.ForeColor = System.Drawing.Color.Black;
+            this.buttonPenColour.Location = new System.Drawing.Point(6, 63);
+            this.buttonPenColour.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.buttonPenColour.Name = "buttonPenColour";
+            this.buttonPenColour.Size = new System.Drawing.Size(234, 32);
+            this.buttonPenColour.TabIndex = 8;
+            this.buttonPenColour.Text = "Select Pen Colour";
+            this.buttonPenColour.UseVisualStyleBackColor = false;
+            this.buttonPenColour.Click += new System.EventHandler(this.buttonPenColour_Click);
+            // 
             // buttonExit
             // 
             this.buttonExit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
@@ -219,47 +262,7 @@
             this.buttonExit.TabIndex = 9;
             this.buttonExit.Text = "Exit";
             this.buttonExit.UseVisualStyleBackColor = false;
-            // 
-            // fileToolStripMenuItem
-            // 
-            this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.saveAsToolStripMenuItem});
-            this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
-            this.fileToolStripMenuItem.Text = "File";
-            // 
-            // saveAsToolStripMenuItem
-            // 
-            this.saveAsToolStripMenuItem.Name = "saveAsToolStripMenuItem";
-            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.saveAsToolStripMenuItem.Text = "Save To Database";
-            // 
-            // buttonEraseEverything
-            // 
-            this.buttonEraseEverything.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.buttonEraseEverything.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.buttonEraseEverything.ForeColor = System.Drawing.Color.White;
-            this.buttonEraseEverything.Location = new System.Drawing.Point(6, 135);
-            this.buttonEraseEverything.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.buttonEraseEverything.Name = "buttonEraseEverything";
-            this.buttonEraseEverything.Size = new System.Drawing.Size(234, 32);
-            this.buttonEraseEverything.TabIndex = 10;
-            this.buttonEraseEverything.Text = "Erase Everything From Canvas";
-            this.buttonEraseEverything.UseVisualStyleBackColor = false;
-            // 
-            // buttonEraser
-            // 
-            this.buttonEraser.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.buttonEraser.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.buttonEraser.ForeColor = System.Drawing.Color.Black;
-            this.buttonEraser.Location = new System.Drawing.Point(6, 172);
-            this.buttonEraser.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.buttonEraser.Name = "buttonEraser";
-            this.buttonEraser.Size = new System.Drawing.Size(234, 32);
-            this.buttonEraser.TabIndex = 6;
-            this.buttonEraser.Text = "Eraser";
-            this.buttonEraser.UseVisualStyleBackColor = false;
-            this.buttonEraser.Click += new System.EventHandler(this.buttonEraser_Click);
+            this.buttonExit.Click += new System.EventHandler(this.buttonExit_Click);
             // 
             // Form1
             // 
@@ -307,6 +310,7 @@
         private System.Windows.Forms.ToolStripMenuItem saveAsToolStripMenuItem;
         private System.Windows.Forms.Button buttonEraseEverything;
         private System.Windows.Forms.Button buttonEraser;
+        private System.Windows.Forms.ColorDialog colorDialog1;
     }
 }
 
