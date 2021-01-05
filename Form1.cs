@@ -23,7 +23,8 @@ namespace csharp_vathmologoumeni_2
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            pen      = new Pen(buttonPenColour.BackColor);
+            graphics = CreateGraphics();
         }
 
         private void ChangeQuickSettingButton(Button toChange, params Button[] buttonsUnselected)
@@ -38,6 +39,7 @@ namespace csharp_vathmologoumeni_2
             }
         }
 
+        //τα κουμπιά που επιλέγουν τον τύπο της ζωγραφικής
         private void buttonFreestyleDraw_Click(object sender, EventArgs e)
         {
             QuickSettingsSelection = 1;
@@ -83,17 +85,20 @@ namespace csharp_vathmologoumeni_2
             buttonEraser.ForeColor = Color.White;
         }
 
+        //το κουμπί της εξόδου (θα ρωτάει και αν θέλει ο χρήστης να φύγει)
         private void buttonExit_Click(object sender, EventArgs e)
         {
             Close();
         }
 
+        //κουμπί για την αλλαγή του pen
         private void buttonPenColour_Click(object sender, EventArgs e)
         {
             if (colorDialog1.ShowDialog() == DialogResult.Cancel)
                 return;
 
             buttonPenColour.BackColor = colorDialog1.Color;
+            pen.Color                 = colorDialog1.Color;
 
             if (buttonPenColour.BackColor.GetBrightness() > 0.45)
                 buttonPenColour.ForeColor = Color.Black;

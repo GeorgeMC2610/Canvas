@@ -39,7 +39,6 @@
             this.buttonCircle = new System.Windows.Forms.Button();
             this.groupBoxQuickSettings = new System.Windows.Forms.GroupBox();
             this.buttonEraser = new System.Windows.Forms.Button();
-            this.buttonPenSize = new System.Windows.Forms.Button();
             this.groupBoxDrawingSettings = new System.Windows.Forms.GroupBox();
             this.buttonEraseEverything = new System.Windows.Forms.Button();
             this.buttonSelectBackgroundColour = new System.Windows.Forms.Button();
@@ -47,9 +46,12 @@
             this.buttonExit = new System.Windows.Forms.Button();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.colorDialog2 = new System.Windows.Forms.ColorDialog();
+            this.trackBarPenSize = new System.Windows.Forms.TrackBar();
+            this.labelPenSize = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.groupBoxQuickSettings.SuspendLayout();
             this.groupBoxDrawingSettings.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBarPenSize)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -184,29 +186,17 @@
             this.buttonEraser.UseVisualStyleBackColor = false;
             this.buttonEraser.Click += new System.EventHandler(this.buttonEraser_Click);
             // 
-            // buttonPenSize
-            // 
-            this.buttonPenSize.BackColor = System.Drawing.Color.Silver;
-            this.buttonPenSize.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.buttonPenSize.ForeColor = System.Drawing.Color.Black;
-            this.buttonPenSize.Location = new System.Drawing.Point(6, 27);
-            this.buttonPenSize.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.buttonPenSize.Name = "buttonPenSize";
-            this.buttonPenSize.Size = new System.Drawing.Size(234, 32);
-            this.buttonPenSize.TabIndex = 7;
-            this.buttonPenSize.Text = "Select Pen Size";
-            this.buttonPenSize.UseVisualStyleBackColor = false;
-            // 
             // groupBoxDrawingSettings
             // 
             this.groupBoxDrawingSettings.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.groupBoxDrawingSettings.Controls.Add(this.labelPenSize);
+            this.groupBoxDrawingSettings.Controls.Add(this.trackBarPenSize);
             this.groupBoxDrawingSettings.Controls.Add(this.buttonEraseEverything);
             this.groupBoxDrawingSettings.Controls.Add(this.buttonSelectBackgroundColour);
             this.groupBoxDrawingSettings.Controls.Add(this.buttonPenColour);
-            this.groupBoxDrawingSettings.Controls.Add(this.buttonPenSize);
             this.groupBoxDrawingSettings.Location = new System.Drawing.Point(12, 307);
             this.groupBoxDrawingSettings.Name = "groupBoxDrawingSettings";
-            this.groupBoxDrawingSettings.Size = new System.Drawing.Size(246, 182);
+            this.groupBoxDrawingSettings.Size = new System.Drawing.Size(246, 309);
             this.groupBoxDrawingSettings.TabIndex = 8;
             this.groupBoxDrawingSettings.TabStop = false;
             this.groupBoxDrawingSettings.Text = "Drawing Settings";
@@ -216,7 +206,7 @@
             this.buttonEraseEverything.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.buttonEraseEverything.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.buttonEraseEverything.ForeColor = System.Drawing.Color.White;
-            this.buttonEraseEverything.Location = new System.Drawing.Point(6, 135);
+            this.buttonEraseEverything.Location = new System.Drawing.Point(6, 189);
             this.buttonEraseEverything.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.buttonEraseEverything.Name = "buttonEraseEverything";
             this.buttonEraseEverything.Size = new System.Drawing.Size(234, 32);
@@ -229,7 +219,7 @@
             this.buttonSelectBackgroundColour.BackColor = System.Drawing.Color.Silver;
             this.buttonSelectBackgroundColour.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.buttonSelectBackgroundColour.ForeColor = System.Drawing.Color.Black;
-            this.buttonSelectBackgroundColour.Location = new System.Drawing.Point(6, 99);
+            this.buttonSelectBackgroundColour.Location = new System.Drawing.Point(6, 149);
             this.buttonSelectBackgroundColour.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.buttonSelectBackgroundColour.Name = "buttonSelectBackgroundColour";
             this.buttonSelectBackgroundColour.Size = new System.Drawing.Size(234, 32);
@@ -243,7 +233,7 @@
             this.buttonPenColour.BackColor = System.Drawing.Color.Silver;
             this.buttonPenColour.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.buttonPenColour.ForeColor = System.Drawing.Color.Black;
-            this.buttonPenColour.Location = new System.Drawing.Point(6, 63);
+            this.buttonPenColour.Location = new System.Drawing.Point(6, 109);
             this.buttonPenColour.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.buttonPenColour.Name = "buttonPenColour";
             this.buttonPenColour.Size = new System.Drawing.Size(234, 32);
@@ -265,6 +255,27 @@
             this.buttonExit.Text = "Exit";
             this.buttonExit.UseVisualStyleBackColor = false;
             this.buttonExit.Click += new System.EventHandler(this.buttonExit_Click);
+            // 
+            // trackBarPenSize
+            // 
+            this.trackBarPenSize.Location = new System.Drawing.Point(6, 57);
+            this.trackBarPenSize.Maximum = 11;
+            this.trackBarPenSize.Minimum = 1;
+            this.trackBarPenSize.Name = "trackBarPenSize";
+            this.trackBarPenSize.Size = new System.Drawing.Size(234, 45);
+            this.trackBarPenSize.TabIndex = 11;
+            this.trackBarPenSize.TickStyle = System.Windows.Forms.TickStyle.TopLeft;
+            this.trackBarPenSize.Value = 6;
+            // 
+            // labelPenSize
+            // 
+            this.labelPenSize.AutoSize = true;
+            this.labelPenSize.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelPenSize.Location = new System.Drawing.Point(85, 34);
+            this.labelPenSize.Name = "labelPenSize";
+            this.labelPenSize.Size = new System.Drawing.Size(81, 19);
+            this.labelPenSize.TabIndex = 12;
+            this.labelPenSize.Text = "Pen Size: 6";
             // 
             // Form1
             // 
@@ -288,6 +299,8 @@
             this.menuStrip1.PerformLayout();
             this.groupBoxQuickSettings.ResumeLayout(false);
             this.groupBoxDrawingSettings.ResumeLayout(false);
+            this.groupBoxDrawingSettings.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBarPenSize)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -303,7 +316,6 @@
         private System.Windows.Forms.Button buttonEllipse;
         private System.Windows.Forms.Button buttonCircle;
         private System.Windows.Forms.GroupBox groupBoxQuickSettings;
-        private System.Windows.Forms.Button buttonPenSize;
         private System.Windows.Forms.GroupBox groupBoxDrawingSettings;
         private System.Windows.Forms.Button buttonPenColour;
         private System.Windows.Forms.Button buttonSelectBackgroundColour;
@@ -314,6 +326,8 @@
         private System.Windows.Forms.Button buttonEraser;
         private System.Windows.Forms.ColorDialog colorDialog1;
         private System.Windows.Forms.ColorDialog colorDialog2;
+        private System.Windows.Forms.Label labelPenSize;
+        private System.Windows.Forms.TrackBar trackBarPenSize;
     }
 }
 
