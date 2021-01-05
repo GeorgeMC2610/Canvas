@@ -17,7 +17,7 @@ namespace csharp_vathmologoumeni_2
             InitializeComponent();
         }
 
-        int QuickSettingsSelection = 0;
+        int QuickSettingsSelection = 0, dx, dy;
         bool canDraw = false;
         Graphics graphics;
         Pen pen;
@@ -129,7 +129,9 @@ namespace csharp_vathmologoumeni_2
             switch (QuickSettingsSelection)
             {
                 case 1:
-                    graphics.DrawLine(pen, e.X, e.Y, e.X + 1, e.Y + 1);
+                    graphics.DrawLine(pen, e.X, e.Y, dx, dy);
+                    dx = e.X;
+                    dy = e.Y;
                     break;
                 case 2:
                     break;
@@ -144,7 +146,17 @@ namespace csharp_vathmologoumeni_2
 
         private void panel1_MouseDown(object sender, MouseEventArgs e)
         {
+            dx = e.X;
+            dy = e.Y;
             canDraw = true;
+        }
+
+        private void buttonEraseEverything_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Are you sure you want to clear the canvas? Effects cannot be reverted.", "Clear Canvas", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.No)
+                return;
+
+            graphics.Clear(panel1.BackColor);
         }
 
         private void panel1_MouseUp(object sender, MouseEventArgs e)

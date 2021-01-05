@@ -217,6 +217,7 @@
             this.buttonEraseEverything.TabIndex = 10;
             this.buttonEraseEverything.Text = "Erase Everything From Canvas";
             this.buttonEraseEverything.UseVisualStyleBackColor = false;
+            this.buttonEraseEverything.Click += new System.EventHandler(this.buttonEraseEverything_Click);
             // 
             // buttonSelectBackgroundColour
             // 
