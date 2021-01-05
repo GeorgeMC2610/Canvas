@@ -100,5 +100,13 @@ namespace csharp_vathmologoumeni_2
             else
                 buttonPenColour.ForeColor = Color.White;
         }
+
+        private void buttonSelectBackgroundColour_Click(object sender, EventArgs e)
+        {
+            if (colorDialog2.ShowDialog() == DialogResult.Cancel)
+                return;
+
+            panel1.BackColor = colorDialog2.Color;
+        }
     }
 }

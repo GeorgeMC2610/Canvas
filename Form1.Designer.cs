@@ -46,6 +46,7 @@
             this.buttonPenColour = new System.Windows.Forms.Button();
             this.buttonExit = new System.Windows.Forms.Button();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
+            this.colorDialog2 = new System.Windows.Forms.ColorDialog();
             this.menuStrip1.SuspendLayout();
             this.groupBoxQuickSettings.SuspendLayout();
             this.groupBoxDrawingSettings.SuspendLayout();
@@ -235,6 +236,7 @@
             this.buttonSelectBackgroundColour.TabIndex = 9;
             this.buttonSelectBackgroundColour.Text = "Select Background Colour";
             this.buttonSelectBackgroundColour.UseVisualStyleBackColor = false;
+            this.buttonSelectBackgroundColour.Click += new System.EventHandler(this.buttonSelectBackgroundColour_Click);
             // 
             // buttonPenColour
             // 
@@ -311,6 +313,7 @@
         private System.Windows.Forms.Button buttonEraseEverything;
         private System.Windows.Forms.Button buttonEraser;
         private System.Windows.Forms.ColorDialog colorDialog1;
+        private System.Windows.Forms.ColorDialog colorDialog2;
     }
 }
 
