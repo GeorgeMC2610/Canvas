@@ -121,6 +121,7 @@ namespace csharp_vathmologoumeni_2
             pen.Width = trackBarPenSize.Value*2;
         }
 
+        //πράττουμε ανάλογα με τις ενέργειες που έχει επιλέξει ο χρήστης.
         private void panel1_MouseMove(object sender, MouseEventArgs e)
         {
             if (!canDraw)
@@ -140,15 +141,20 @@ namespace csharp_vathmologoumeni_2
                 case 4:
                     break;
                 case 5:
+                    Pen eraser = new Pen(panel1.BackColor, trackBarPenSize.Value * 4);
+                    graphics.DrawLine(eraser, e.X, e.Y, dx, dy);
+                    dx = e.X;
+                    dy = e.Y;
                     break;
             }   
         }
 
+        //αν το ποντίκι είναι πατημένο εντός του πάνελ, τότε ενεργοποιούμε την canDraw, ώστε να μπορεί να ζωγραφίσει ο χρήστης
         private void panel1_MouseDown(object sender, MouseEventArgs e)
         {
+            canDraw = true;
             dx = e.X;
             dy = e.Y;
-            canDraw = true;
         }
 
         private void buttonEraseEverything_Click(object sender, EventArgs e)
