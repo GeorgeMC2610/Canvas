@@ -66,6 +66,10 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1504, 731);
             this.panel1.TabIndex = 0;
+            this.panel1.SizeChanged += new System.EventHandler(this.panel1_SizeChanged);
+            this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
+            this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseMove);
+            this.panel1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseUp);
             // 
             // menuStrip1
             // 
@@ -258,6 +262,7 @@
             // 
             // trackBarPenSize
             // 
+            this.trackBarPenSize.LargeChange = 2;
             this.trackBarPenSize.Location = new System.Drawing.Point(6, 57);
             this.trackBarPenSize.Maximum = 11;
             this.trackBarPenSize.Minimum = 1;
@@ -265,17 +270,18 @@
             this.trackBarPenSize.Size = new System.Drawing.Size(234, 45);
             this.trackBarPenSize.TabIndex = 11;
             this.trackBarPenSize.TickStyle = System.Windows.Forms.TickStyle.TopLeft;
-            this.trackBarPenSize.Value = 6;
+            this.trackBarPenSize.Value = 1;
+            this.trackBarPenSize.Scroll += new System.EventHandler(this.trackBarPenSize_Scroll);
             // 
             // labelPenSize
             // 
             this.labelPenSize.AutoSize = true;
-            this.labelPenSize.Font = new System.Drawing.Font("Microsoft YaHei", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelPenSize.Location = new System.Drawing.Point(85, 34);
+            this.labelPenSize.Font = new System.Drawing.Font("Microsoft YaHei", 10F, System.Drawing.FontStyle.Bold);
+            this.labelPenSize.Location = new System.Drawing.Point(82, 35);
             this.labelPenSize.Name = "labelPenSize";
-            this.labelPenSize.Size = new System.Drawing.Size(81, 19);
+            this.labelPenSize.Size = new System.Drawing.Size(83, 19);
             this.labelPenSize.TabIndex = 12;
-            this.labelPenSize.Text = "Pen Size: 6";
+            this.labelPenSize.Text = "Pen Size: 1";
             // 
             // Form1
             // 

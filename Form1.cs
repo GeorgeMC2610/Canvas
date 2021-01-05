@@ -18,13 +18,14 @@ namespace csharp_vathmologoumeni_2
         }
 
         int QuickSettingsSelection = 0;
+        bool canDraw = false;
         Graphics graphics;
         Pen pen;
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            pen      = new Pen(buttonPenColour.BackColor);
-            graphics = CreateGraphics();
+            pen      = new Pen(buttonPenColour.BackColor, trackBarPenSize.Value);
+            graphics = panel1.CreateGraphics();
         }
 
         private void ChangeQuickSettingButton(Button toChange, params Button[] buttonsUnselected)
@@ -112,6 +113,48 @@ namespace csharp_vathmologoumeni_2
                 return;
 
             panel1.BackColor = colorDialog2.Color;
+        }
+
+        private void trackBarPenSize_Scroll(object sender, EventArgs e)
+        {
+            labelPenSize.Text = "Pen Size: " + trackBarPenSize.Value.ToString();
+            pen.Width = trackBarPenSize.Value*2;
+        }
+
+        private void panel1_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (!canDraw)
+                return;
+
+            switch (QuickSettingsSelection)
+            {
+                case 1:
+                    graphics.DrawLine(pen, e.X, e.Y, e.X + 1, e.Y + 1);
+                    break;
+                case 2:
+                    break;
+                case 3:
+                    break;
+                case 4:
+                    break;
+                case 5:
+                    break;
+            }   
+        }
+
+        private void panel1_MouseDown(object sender, MouseEventArgs e)
+        {
+            canDraw = true;
+        }
+
+        private void panel1_MouseUp(object sender, MouseEventArgs e)
+        {
+            canDraw = false;
+        }
+
+        private void panel1_SizeChanged(object sender, EventArgs e)
+        {
+            graphics = panel1.CreateGraphics();
         }
     }
 }
