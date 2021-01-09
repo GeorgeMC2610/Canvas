@@ -171,9 +171,20 @@ namespace csharp_vathmologoumeni_2
         private void panel1_MouseUp(object sender, MouseEventArgs e)
         {
             canDraw = false;
-            if (QuickSettingsSelection == 2)
+
+            switch (QuickSettingsSelection)
             {
-                graphics.DrawLine(pen, e.X, e.Y, lineX, lineY);
+                case 2:
+                    graphics.DrawLine(pen, e.X, e.Y, lineX, lineY);
+                    break;
+                case 3:
+                    Rectangle rect = new Rectangle();
+                    rect.X = lineX;
+                    rect.Y = lineY;
+                    rect.Width = Math.Abs(lineX - e.X);
+                    rect.Height = Math.Abs(lineY - e.Y);
+                    graphics.DrawEllipse(pen, rect);
+                    break;
             }
         }
 
