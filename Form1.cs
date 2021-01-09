@@ -17,7 +17,7 @@ namespace csharp_vathmologoumeni_2
             InitializeComponent();
         }
 
-        int QuickSettingsSelection = 0, dx, dy;
+        int QuickSettingsSelection = 0, dx, dy, lineX, lineY;
         bool canDraw = false;
         Graphics graphics;
         Pen pen;
@@ -155,6 +155,9 @@ namespace csharp_vathmologoumeni_2
             canDraw = true;
             dx = e.X;
             dy = e.Y;
+
+            lineX = e.X;
+            lineY = e.Y;
         }
 
         private void buttonEraseEverything_Click(object sender, EventArgs e)
@@ -168,6 +171,10 @@ namespace csharp_vathmologoumeni_2
         private void panel1_MouseUp(object sender, MouseEventArgs e)
         {
             canDraw = false;
+            if (QuickSettingsSelection == 2)
+            {
+                graphics.DrawLine(pen, e.X, e.Y, lineX, lineY);
+            }
         }
 
         private void panel1_SizeChanged(object sender, EventArgs e)

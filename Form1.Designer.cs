@@ -40,14 +40,14 @@
             this.groupBoxQuickSettings = new System.Windows.Forms.GroupBox();
             this.buttonEraser = new System.Windows.Forms.Button();
             this.groupBoxDrawingSettings = new System.Windows.Forms.GroupBox();
+            this.labelPenSize = new System.Windows.Forms.Label();
+            this.trackBarPenSize = new System.Windows.Forms.TrackBar();
             this.buttonEraseEverything = new System.Windows.Forms.Button();
             this.buttonSelectBackgroundColour = new System.Windows.Forms.Button();
             this.buttonPenColour = new System.Windows.Forms.Button();
             this.buttonExit = new System.Windows.Forms.Button();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.colorDialog2 = new System.Windows.Forms.ColorDialog();
-            this.trackBarPenSize = new System.Windows.Forms.TrackBar();
-            this.labelPenSize = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.groupBoxQuickSettings.SuspendLayout();
             this.groupBoxDrawingSettings.SuspendLayout();
@@ -198,12 +198,35 @@
             this.groupBoxDrawingSettings.Controls.Add(this.buttonEraseEverything);
             this.groupBoxDrawingSettings.Controls.Add(this.buttonSelectBackgroundColour);
             this.groupBoxDrawingSettings.Controls.Add(this.buttonPenColour);
-            this.groupBoxDrawingSettings.Location = new System.Drawing.Point(12, 307);
+            this.groupBoxDrawingSettings.Location = new System.Drawing.Point(12, 264);
             this.groupBoxDrawingSettings.Name = "groupBoxDrawingSettings";
             this.groupBoxDrawingSettings.Size = new System.Drawing.Size(246, 309);
             this.groupBoxDrawingSettings.TabIndex = 8;
             this.groupBoxDrawingSettings.TabStop = false;
             this.groupBoxDrawingSettings.Text = "Drawing Settings";
+            // 
+            // labelPenSize
+            // 
+            this.labelPenSize.AutoSize = true;
+            this.labelPenSize.Font = new System.Drawing.Font("Microsoft YaHei", 10F, System.Drawing.FontStyle.Bold);
+            this.labelPenSize.Location = new System.Drawing.Point(82, 35);
+            this.labelPenSize.Name = "labelPenSize";
+            this.labelPenSize.Size = new System.Drawing.Size(83, 19);
+            this.labelPenSize.TabIndex = 12;
+            this.labelPenSize.Text = "Pen Size: 1";
+            // 
+            // trackBarPenSize
+            // 
+            this.trackBarPenSize.LargeChange = 2;
+            this.trackBarPenSize.Location = new System.Drawing.Point(6, 57);
+            this.trackBarPenSize.Maximum = 11;
+            this.trackBarPenSize.Minimum = 1;
+            this.trackBarPenSize.Name = "trackBarPenSize";
+            this.trackBarPenSize.Size = new System.Drawing.Size(234, 45);
+            this.trackBarPenSize.TabIndex = 11;
+            this.trackBarPenSize.TickStyle = System.Windows.Forms.TickStyle.TopLeft;
+            this.trackBarPenSize.Value = 1;
+            this.trackBarPenSize.Scroll += new System.EventHandler(this.trackBarPenSize_Scroll);
             // 
             // buttonEraseEverything
             // 
@@ -260,29 +283,6 @@
             this.buttonExit.Text = "Exit";
             this.buttonExit.UseVisualStyleBackColor = false;
             this.buttonExit.Click += new System.EventHandler(this.buttonExit_Click);
-            // 
-            // trackBarPenSize
-            // 
-            this.trackBarPenSize.LargeChange = 2;
-            this.trackBarPenSize.Location = new System.Drawing.Point(6, 57);
-            this.trackBarPenSize.Maximum = 11;
-            this.trackBarPenSize.Minimum = 1;
-            this.trackBarPenSize.Name = "trackBarPenSize";
-            this.trackBarPenSize.Size = new System.Drawing.Size(234, 45);
-            this.trackBarPenSize.TabIndex = 11;
-            this.trackBarPenSize.TickStyle = System.Windows.Forms.TickStyle.TopLeft;
-            this.trackBarPenSize.Value = 1;
-            this.trackBarPenSize.Scroll += new System.EventHandler(this.trackBarPenSize_Scroll);
-            // 
-            // labelPenSize
-            // 
-            this.labelPenSize.AutoSize = true;
-            this.labelPenSize.Font = new System.Drawing.Font("Microsoft YaHei", 10F, System.Drawing.FontStyle.Bold);
-            this.labelPenSize.Location = new System.Drawing.Point(82, 35);
-            this.labelPenSize.Name = "labelPenSize";
-            this.labelPenSize.Size = new System.Drawing.Size(83, 19);
-            this.labelPenSize.TabIndex = 12;
-            this.labelPenSize.Text = "Pen Size: 1";
             // 
             // Form1
             // 
