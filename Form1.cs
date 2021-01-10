@@ -17,14 +17,16 @@ namespace csharp_vathmologoumeni_2
             InitializeComponent();
         }
 
-        int QuickSettingsSelection = 0, dx, dy, lineX, lineY;
+        int QuickSettingsSelection = 0, dx, dy, lineX, lineY;6
         bool canDraw = false;
         Graphics graphics;
         Pen pen;
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            pen      = new Pen(buttonPenColour.BackColor, trackBarPenSize.Value);
+            // TODO: This line of code loads data into the 'shapes._Shapes' table. You can move, or remove it, as needed.
+            this.shapesTableAdapter.Fill(this.shapes._Shapes);
+            pen = new Pen(buttonPenColour.BackColor, trackBarPenSize.Value);
             graphics = panel1.CreateGraphics();
         }
 
@@ -61,34 +63,6 @@ namespace csharp_vathmologoumeni_2
         {
             labelPenSize.Text = "Pen Size: " + trackBarPenSize.Value.ToString();
             pen.Width = trackBarPenSize.Value*2;
-        }
-
-        //πράττουμε ανάλογα με τις ενέργειες που έχει επιλέξει ο χρήστης.
-        private void panel1_MouseMove(object sender, MouseEventArgs e)
-        {
-            if (!canDraw)
-                return;
-
-            switch (QuickSettingsSelection)
-            {
-                case 1:
-                    graphics.DrawLine(pen, e.X, e.Y, dx, dy);
-                    dx = e.X;
-                    dy = e.Y;
-                    break;
-                case 2:
-                    break;
-                case 3:
-                    break;
-                case 4:
-                    break;
-                case 6:
-                    Pen eraser = new Pen(panel1.BackColor, trackBarPenSize.Value * 4);
-                    graphics.DrawLine(eraser, e.X, e.Y, dx, dy);
-                    dx = e.X;
-                    dy = e.Y;
-                    break;
-            }   
         }
 
         //τα κουμπιά στο group box των quick settings, χρησιμοποιούν την ίδια συνάρτηση όταν κλικάρονται
@@ -135,6 +109,14 @@ namespace csharp_vathmologoumeni_2
             buttonEraser.ForeColor = Color.Black;
         }
 
+        private void buttonEraseEverything_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Are you sure you want to clear the canvas? Effects cannot be reverted.", "Clear Canvas", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.No)
+                return;
+
+            graphics.Clear(panel1.BackColor);
+        }
+
         //αν το ποντίκι είναι πατημένο εντός του πάνελ, τότε ενεργοποιούμε την canDraw, ώστε να μπορεί να ζωγραφίσει ο χρήστης
         private void panel1_MouseDown(object sender, MouseEventArgs e)
         {
@@ -146,12 +128,32 @@ namespace csharp_vathmologoumeni_2
             lineY = e.Y;
         }
 
-        private void buttonEraseEverything_Click(object sender, EventArgs e)
+        //πράττουμε ανάλογα με τις ενέργειες που έχει επιλέξει ο χρήστης.
+        private void panel1_MouseMove(object sender, MouseEventArgs e)
         {
-            if (MessageBox.Show("Are you sure you want to clear the canvas? Effects cannot be reverted.", "Clear Canvas", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.No)
+            if (!canDraw)
                 return;
 
-            graphics.Clear(panel1.BackColor);
+            switch (QuickSettingsSelection)
+            {
+                case 1:
+                    graphics.DrawLine(pen, e.X, e.Y, dx, dy);
+                    dx = e.X;
+                    dy = e.Y;
+                    break;
+                case 2:
+                    break;
+                case 3:
+                    break;
+                case 4:
+                    break;
+                case 6:
+                    Pen eraser = new Pen(panel1.BackColor, trackBarPenSize.Value * 4);
+                    graphics.DrawLine(eraser, e.X, e.Y, dx, dy);
+                    dx = e.X;
+                    dy = e.Y;
+                    break;
+            }
         }
 
         private void panel1_MouseUp(object sender, MouseEventArgs e)
@@ -160,8 +162,12 @@ namespace csharp_vathmologoumeni_2
 
             switch (QuickSettingsSelection)
             {
+                case 1:
+                    labelShape.Text = "Freestyle";
+                    break;
                 case 2:
                     graphics.DrawLine(pen, e.X, e.Y, lineX, lineY);
+                    labelShape.Text = "Line Segment";
                     break;
                 case 3:
                     Rectangle rectEllipse = new Rectangle();
@@ -170,13 +176,23 @@ namespace csharp_vathmologoumeni_2
                     rectEllipse.Width     = Math.Abs(lineX - e.X);
                     rectEllipse.Height    = Math.Abs(lineY - e.Y);
                     graphics.DrawEllipse(pen, rectEllipse);
+                    labelShape.Text = "Ellipse";
                     break;
                 case 4:
                     Rectangle rectCircle = new Rectangle();
                     rectCircle.X         = rectCircle.Y = lineX;
                     rectCircle.Width     = rectCircle.Height = Math.Abs(lineX - e.X);
-                    
                     graphics.DrawEllipse(pen, rectCircle);
+                    labelShape.Text = "Circle";
+                    break;
+                case 5:
+                    Rectangle rect = new Rectangle();
+                    rect.X         = lineX;
+                    rect.Y         = lineY;
+                    rect.Width     = Math.Abs(lineX - e.X);
+                    rect.Height    = Math.Abs(lineY - e.Y);
+                    graphics.DrawRectangle(pen, rect);
+                    labelShape.Text = "Rectangle";
                     break;
             }
         }

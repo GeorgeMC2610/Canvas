@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -51,13 +52,20 @@
             this.colorDialog2 = new System.Windows.Forms.ColorDialog();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.buttonCube = new System.Windows.Forms.Button();
+            this.buttonHouse = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.labelShape = new System.Windows.Forms.Label();
+            this.shapes = new csharp_vathmologoumeni_2.Shapes();
+            this.shapesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.shapesTableAdapter = new csharp_vathmologoumeni_2.ShapesTableAdapters.ShapesTableAdapter();
             this.menuStrip1.SuspendLayout();
             this.groupBoxQuickSettings.SuspendLayout();
             this.groupBoxDrawingSettings.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarPenSize)).BeginInit();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.shapes)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.shapesBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -67,6 +75,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BackColor = System.Drawing.Color.White;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.DataBindings.Add(new System.Windows.Forms.Binding("BorderStyle", this.shapesBindingSource, "Type", true));
             this.panel1.Location = new System.Drawing.Point(264, 32);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel1.Name = "panel1";
@@ -227,7 +236,7 @@
             this.groupBoxDrawingSettings.Controls.Add(this.buttonPenColour);
             this.groupBoxDrawingSettings.Location = new System.Drawing.Point(12, 315);
             this.groupBoxDrawingSettings.Name = "groupBoxDrawingSettings";
-            this.groupBoxDrawingSettings.Size = new System.Drawing.Size(246, 245);
+            this.groupBoxDrawingSettings.Size = new System.Drawing.Size(246, 221);
             this.groupBoxDrawingSettings.TabIndex = 8;
             this.groupBoxDrawingSettings.TabStop = false;
             this.groupBoxDrawingSettings.Text = "Drawing Settings";
@@ -260,7 +269,7 @@
             this.buttonEraseEverything.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.buttonEraseEverything.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.buttonEraseEverything.ForeColor = System.Drawing.Color.White;
-            this.buttonEraseEverything.Location = new System.Drawing.Point(6, 189);
+            this.buttonEraseEverything.Location = new System.Drawing.Point(6, 179);
             this.buttonEraseEverything.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.buttonEraseEverything.Name = "buttonEraseEverything";
             this.buttonEraseEverything.Size = new System.Drawing.Size(234, 32);
@@ -274,7 +283,7 @@
             this.buttonSelectBackgroundColour.BackColor = System.Drawing.Color.Silver;
             this.buttonSelectBackgroundColour.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.buttonSelectBackgroundColour.ForeColor = System.Drawing.Color.Black;
-            this.buttonSelectBackgroundColour.Location = new System.Drawing.Point(6, 149);
+            this.buttonSelectBackgroundColour.Location = new System.Drawing.Point(6, 144);
             this.buttonSelectBackgroundColour.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.buttonSelectBackgroundColour.Name = "buttonSelectBackgroundColour";
             this.buttonSelectBackgroundColour.Size = new System.Drawing.Size(234, 32);
@@ -314,12 +323,13 @@
             // groupBox1
             // 
             this.groupBox1.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.groupBox1.Controls.Add(this.button3);
-            this.groupBox1.Controls.Add(this.button2);
             this.groupBox1.Controls.Add(this.button1);
-            this.groupBox1.Location = new System.Drawing.Point(12, 627);
+            this.groupBox1.Controls.Add(this.button3);
+            this.groupBox1.Controls.Add(this.buttonCube);
+            this.groupBox1.Controls.Add(this.buttonHouse);
+            this.groupBox1.Location = new System.Drawing.Point(12, 591);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(246, 210);
+            this.groupBox1.Size = new System.Drawing.Size(246, 189);
             this.groupBox1.TabIndex = 10;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Self-Generating Designs";
@@ -329,38 +339,77 @@
             this.button3.BackColor = System.Drawing.Color.Silver;
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button3.ForeColor = System.Drawing.Color.Black;
-            this.button3.Location = new System.Drawing.Point(6, 107);
+            this.button3.Location = new System.Drawing.Point(6, 99);
             this.button3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(234, 32);
             this.button3.TabIndex = 11;
+            this.button3.Text = "Mail";
             this.button3.UseVisualStyleBackColor = false;
             // 
-            // button2
+            // buttonCube
             // 
-            this.button2.BackColor = System.Drawing.Color.Silver;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button2.ForeColor = System.Drawing.Color.Black;
-            this.button2.Location = new System.Drawing.Point(6, 67);
-            this.button2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(234, 32);
-            this.button2.TabIndex = 10;
-            this.button2.Text = "Cube";
-            this.button2.UseVisualStyleBackColor = false;
+            this.buttonCube.BackColor = System.Drawing.Color.Silver;
+            this.buttonCube.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.buttonCube.ForeColor = System.Drawing.Color.Black;
+            this.buttonCube.Location = new System.Drawing.Point(6, 63);
+            this.buttonCube.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.buttonCube.Name = "buttonCube";
+            this.buttonCube.Size = new System.Drawing.Size(234, 32);
+            this.buttonCube.TabIndex = 10;
+            this.buttonCube.Text = "Cube";
+            this.buttonCube.UseVisualStyleBackColor = false;
+            // 
+            // buttonHouse
+            // 
+            this.buttonHouse.BackColor = System.Drawing.Color.Silver;
+            this.buttonHouse.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.buttonHouse.ForeColor = System.Drawing.Color.Black;
+            this.buttonHouse.Location = new System.Drawing.Point(6, 27);
+            this.buttonHouse.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.buttonHouse.Name = "buttonHouse";
+            this.buttonHouse.Size = new System.Drawing.Size(234, 32);
+            this.buttonHouse.TabIndex = 9;
+            this.buttonHouse.Text = "House";
+            this.buttonHouse.UseVisualStyleBackColor = false;
             // 
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.Silver;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button1.ForeColor = System.Drawing.Color.Black;
-            this.button1.Location = new System.Drawing.Point(6, 27);
+            this.button1.Location = new System.Drawing.Point(6, 135);
             this.button1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(234, 32);
-            this.button1.TabIndex = 9;
-            this.button1.Text = "House";
+            this.button1.TabIndex = 12;
+            this.button1.Text = "Stickman";
             this.button1.UseVisualStyleBackColor = false;
+            // 
+            // labelShape
+            // 
+            this.labelShape.AutoSize = true;
+            this.labelShape.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.shapesBindingSource, "Type", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.labelShape.Font = new System.Drawing.Font("Microsoft YaHei", 10F, System.Drawing.FontStyle.Bold);
+            this.labelShape.Location = new System.Drawing.Point(14, 792);
+            this.labelShape.Name = "labelShape";
+            this.labelShape.Size = new System.Drawing.Size(22, 19);
+            this.labelShape.TabIndex = 13;
+            this.labelShape.Text = "fs";
+            // 
+            // shapes
+            // 
+            this.shapes.DataSetName = "Shapes";
+            this.shapes.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // shapesBindingSource
+            // 
+            this.shapesBindingSource.DataMember = "Shapes";
+            this.shapesBindingSource.DataSource = this.shapes;
+            // 
+            // shapesTableAdapter
+            // 
+            this.shapesTableAdapter.ClearBeforeFill = true;
             // 
             // Form1
             // 
@@ -368,6 +417,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(1782, 961);
+            this.Controls.Add(this.labelShape);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.buttonExit);
             this.Controls.Add(this.groupBoxDrawingSettings);
@@ -388,6 +438,8 @@
             this.groupBoxDrawingSettings.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarPenSize)).EndInit();
             this.groupBox1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.shapes)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.shapesBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -418,8 +470,13 @@
         private System.Windows.Forms.Button buttonRectangle;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button buttonCube;
+        private System.Windows.Forms.Button buttonHouse;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label labelShape;
+        private Shapes shapes;
+        private System.Windows.Forms.BindingSource shapesBindingSource;
+        private ShapesTableAdapters.ShapesTableAdapter shapesTableAdapter;
     }
 }
 
