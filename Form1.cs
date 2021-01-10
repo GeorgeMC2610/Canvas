@@ -38,52 +38,9 @@ namespace csharp_vathmologoumeni_2
                 b.BackColor = Color.FromArgb(224, 224, 224);
                 b.ForeColor = Color.Black;
             }
-        }
-
-        //τα κουμπιά που επιλέγουν τον τύπο της ζωγραφικής
-        private void buttonFreestyleDraw_Click(object sender, EventArgs e)
-        {
-            QuickSettingsSelection = 1;
-            ChangeQuickSettingButton(buttonFreestyleDraw, buttonLineSegment, buttonEllipse, buttonCircle);
 
             buttonEraser.BackColor = Color.FromArgb(255, 128, 128);
             buttonEraser.ForeColor = Color.Black;
-        }
-
-        private void buttonLineSegment_Click(object sender, EventArgs e)
-        {
-            QuickSettingsSelection = 2;
-            ChangeQuickSettingButton(buttonLineSegment, buttonFreestyleDraw, buttonEllipse, buttonCircle);
-
-            buttonEraser.BackColor = Color.FromArgb(255, 128, 128);
-            buttonEraser.ForeColor = Color.Black;
-        }
-
-        private void buttonEllipse_Click(object sender, EventArgs e)
-        {
-            QuickSettingsSelection = 3;
-            ChangeQuickSettingButton(buttonEllipse, buttonFreestyleDraw, buttonLineSegment, buttonCircle);
-
-            buttonEraser.BackColor = Color.FromArgb(255, 128, 128);
-            buttonEraser.ForeColor = Color.Black;
-        }
-
-        private void buttonCircle_Click(object sender, EventArgs e)
-        {
-            QuickSettingsSelection = 4;
-            ChangeQuickSettingButton(buttonCircle, buttonFreestyleDraw, buttonLineSegment, buttonEllipse);
-
-            buttonEraser.BackColor = Color.FromArgb(255, 128, 128);
-            buttonEraser.ForeColor = Color.Black;
-        }
-
-        private void buttonEraser_Click(object sender, EventArgs e)
-        {
-            QuickSettingsSelection = 5;
-            ChangeQuickSettingButton(new Button(), buttonFreestyleDraw, buttonLineSegment, buttonEllipse, buttonCircle);
-
-            buttonEraser.BackColor = Color.Maroon;
-            buttonEraser.ForeColor = Color.White;
         }
 
         //το κουμπί της εξόδου (θα ρωτάει και αν θέλει ο χρήστης να φύγει)
@@ -140,13 +97,43 @@ namespace csharp_vathmologoumeni_2
                     break;
                 case 4:
                     break;
-                case 5:
+                case 6:
                     Pen eraser = new Pen(panel1.BackColor, trackBarPenSize.Value * 4);
                     graphics.DrawLine(eraser, e.X, e.Y, dx, dy);
                     dx = e.X;
                     dy = e.Y;
                     break;
             }   
+        }
+
+        //τα κουμπιά στο group box των quick settings, χρησιμοποιούν την ίδια συνάρτηση όταν κλικάρονται
+        private void ButtonsInQuickSettingsClick(object sender, EventArgs e)
+        {
+            //παίρνουμε το κουμπί που πατήθηκε και βάζουμε το tag του στην μεταβλτή που έχουμε θέσει για τα quicksettings
+            Button buttonClicked   = (Button)sender;
+            QuickSettingsSelection = int.Parse(buttonClicked.Tag.ToString());
+
+            //ύστερα παίρνουμε όλα τα κουμπιά
+            Button[] QuickSettingsButtons = { buttonFreestyleDraw, buttonLineSegment, buttonEllipse, buttonCircle, buttonRectangle };
+            //αν το κουμπί είναι η σβήστρα
+            if (QuickSettingsSelection == 6)
+            {
+                //τότε χρησιμοποιούμε την συνάρτησή μας, με ορίσματα ένα dummy κουμπί στο πρώτο όρισμα, ώστε να μην αλλάξει κάτι που δεν θέλουμε. Μετά βάζουμε τα υπόλοιπα κουμπιά για να γίνουν όλα γκρίζα.
+                ChangeQuickSettingButton(new Button(), QuickSettingsButtons);
+
+                //ύστερα κάνουμε μόνοι μας τη δουλειά της αλλαγής χρώματος
+                buttonClicked.BackColor = Color.FromArgb(192, 0, 0);
+                buttonClicked.ForeColor = Color.White;
+
+                return;
+            }
+
+            //χρησιμοποιώντας LINQ, βγάζουμε το κουμπί που πατήθηκε από τη λίστα όλων των κουμπιών.
+            var temp = from button in QuickSettingsButtons where button.Tag != buttonClicked.Tag select button;
+
+            //και ύστερα καλούμε την συνάρτησή μας για να αλλάξουμε ορθώς τα χρώματα στα κουμπιά μας
+            Button[] toBeChanged = temp.ToArray();
+            ChangeQuickSettingButton(buttonClicked, toBeChanged);
         }
 
         //αν το ποντίκι είναι πατημένο εντός του πάνελ, τότε ενεργοποιούμε την canDraw, ώστε να μπορεί να ζωγραφίσει ο χρήστης
@@ -178,12 +165,19 @@ namespace csharp_vathmologoumeni_2
                     graphics.DrawLine(pen, e.X, e.Y, lineX, lineY);
                     break;
                 case 3:
-                    Rectangle rect = new Rectangle();
-                    rect.X = lineX;
-                    rect.Y = lineY;
-                    rect.Width = Math.Abs(lineX - e.X);
-                    rect.Height = Math.Abs(lineY - e.Y);
-                    graphics.DrawEllipse(pen, rect);
+                    Rectangle rectEllipse = new Rectangle();
+                    rectEllipse.X         = lineX;
+                    rectEllipse.Y         = lineY;
+                    rectEllipse.Width     = Math.Abs(lineX - e.X);
+                    rectEllipse.Height    = Math.Abs(lineY - e.Y);
+                    graphics.DrawEllipse(pen, rectEllipse);
+                    break;
+                case 4:
+                    Rectangle rectCircle = new Rectangle();
+                    rectCircle.X         = rectCircle.Y = lineX;
+                    rectCircle.Width     = rectCircle.Height = Math.Abs(lineX - e.X);
+                    
+                    graphics.DrawEllipse(pen, rectCircle);
                     break;
             }
         }
