@@ -28,21 +28,6 @@ namespace csharp_vathmologoumeni_2
             graphics = panel1.CreateGraphics();
         }
 
-        private void ChangeQuickSettingButton(Button toChange, params Button[] buttonsUnselected)
-        {
-            toChange.BackColor = Color.DarkGreen;
-            toChange.ForeColor = Color.White;
-
-            foreach (Button b in buttonsUnselected)
-            {
-                b.BackColor = Color.FromArgb(224, 224, 224);
-                b.ForeColor = Color.Black;
-            }
-
-            buttonEraser.BackColor = Color.FromArgb(255, 128, 128);
-            buttonEraser.ForeColor = Color.Black;
-        }
-
         //το κουμπί της εξόδου (θα ρωτάει και αν θέλει ο χρήστης να φύγει)
         private void buttonExit_Click(object sender, EventArgs e)
         {
@@ -119,7 +104,11 @@ namespace csharp_vathmologoumeni_2
             if (QuickSettingsSelection == 6)
             {
                 //τότε χρησιμοποιούμε την συνάρτησή μας, με ορίσματα ένα dummy κουμπί στο πρώτο όρισμα, ώστε να μην αλλάξει κάτι που δεν θέλουμε. Μετά βάζουμε τα υπόλοιπα κουμπιά για να γίνουν όλα γκρίζα.
-                ChangeQuickSettingButton(new Button(), QuickSettingsButtons);
+                foreach (Button b in QuickSettingsButtons)
+                {
+                    b.BackColor = Color.FromArgb(224, 224, 224);
+                    b.ForeColor = Color.Black;
+                }
 
                 //ύστερα κάνουμε μόνοι μας τη δουλειά της αλλαγής χρώματος
                 buttonClicked.BackColor = Color.FromArgb(192, 0, 0);
@@ -130,10 +119,20 @@ namespace csharp_vathmologoumeni_2
 
             //χρησιμοποιώντας LINQ, βγάζουμε το κουμπί που πατήθηκε από τη λίστα όλων των κουμπιών.
             var temp = from button in QuickSettingsButtons where button.Tag != buttonClicked.Tag select button;
-
-            //και ύστερα καλούμε την συνάρτησή μας για να αλλάξουμε ορθώς τα χρώματα στα κουμπιά μας
             Button[] toBeChanged = temp.ToArray();
-            ChangeQuickSettingButton(buttonClicked, toBeChanged);
+
+            //και μετά βάζουμε τα ανάλογα χρώματα στα κουμπιά
+            buttonClicked.BackColor = Color.DarkGreen;
+            buttonClicked.ForeColor = Color.White;
+
+            foreach (Button b in toBeChanged)
+            {
+                b.BackColor = Color.FromArgb(224, 224, 224);
+                b.ForeColor = Color.Black;
+            }
+
+            buttonEraser.BackColor = Color.FromArgb(255, 128, 128);
+            buttonEraser.ForeColor = Color.Black;
         }
 
         //αν το ποντίκι είναι πατημένο εντός του πάνελ, τότε ενεργοποιούμε την canDraw, ώστε να μπορεί να ζωγραφίσει ο χρήστης
