@@ -24,6 +24,7 @@ namespace csharp_vathmologoumeni_2
         Pen pen;
 
         OleDbConnection connection;
+        OleDbCommand command;
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -33,12 +34,6 @@ namespace csharp_vathmologoumeni_2
 
             pen = new Pen(buttonPenColour.BackColor, trackBarPenSize.Value);
             graphics = panel1.CreateGraphics();
-
-            OleDbCommand command = new OleDbCommand("INSERT INTO Shapes (Type, Date_Created, Time_Created) VALUES (?, ?, ?)", connection);
-            command.Parameters.Add("Freestyle", OleDbType.VarChar);
-            command.Parameters.Add(DateTime.Today.ToShortDateString(), OleDbType.DBDate);
-            command.Parameters.Add(DateTime.Today.TimeOfDay.ToString(), OleDbType.DBTime);
-            command.ExecuteNonQuery();
         }
 
         //το κουμπί της εξόδου (θα ρωτάει και αν θέλει ο χρήστης να φύγει)
@@ -175,13 +170,14 @@ namespace csharp_vathmologoumeni_2
             switch (QuickSettingsSelection)
             {
                 case 1:
-                    OleDbCommand command = new OleDbCommand("INSERT INTO Shapes (Type, Date_Created, Time_Created) VALUES (?, ?, ?)", connection);
-                    command.Parameters.Add("Freestyle", OleDbType.VarChar);
-                    command.Parameters.Add(DateTime.Today.ToShortDateString(), OleDbType.DBDate);
-                    command.Parameters.Add(DateTime.Today.TimeOfDay.ToString(), OleDbType.DBTime);
+                    command = new OleDbCommand("INSERT INTO Shapes (Type, Date_Created, Time_Created, Color, Pen_Size) VALUES ('Freestyle', '" + DateTime.Today.ToShortDateString() + "', '" + DateTime.Now.ToShortTimeString() + "', '" + colorDialog1.Color.ToString() + "', '" + trackBarPenSize.Value.ToString() + "')", connection);
+                    command.ExecuteNonQuery();
                     break;
                 case 2:
                     graphics.DrawLine(pen, e.X, e.Y, lineX, lineY);
+
+                    command = new OleDbCommand("INSERT INTO Shapes (Type, Date_Created, Time_Created, Color, Pen_Size) VALUES ('Freestyle', '" + DateTime.Today.ToShortDateString() + "', '" + DateTime.Now.ToShortTimeString() + "', '" + colorDialog1.Color.ToString() + "', '" + trackBarPenSize.Value.ToString() + "')", connection);
+                    command.ExecuteNonQuery();
                     break;
                 case 3:
                     Rectangle rectEllipse = new Rectangle();
@@ -190,12 +186,18 @@ namespace csharp_vathmologoumeni_2
                     rectEllipse.Width     = Math.Abs(lineX - e.X);
                     rectEllipse.Height    = Math.Abs(lineY - e.Y);
                     graphics.DrawEllipse(pen, rectEllipse);
+
+                    command = new OleDbCommand("INSERT INTO Shapes (Type, Date_Created, Time_Created, Color, Pen_Size) VALUES ('Freestyle', '" + DateTime.Today.ToShortDateString() + "', '" + DateTime.Now.ToShortTimeString() + "', '" + colorDialog1.Color.ToString() + "', '" + trackBarPenSize.Value.ToString() + "')", connection);
+                    command.ExecuteNonQuery();
                     break;
                 case 4:
                     Rectangle rectCircle = new Rectangle();
                     rectCircle.X         = rectCircle.Y = lineX;
                     rectCircle.Width     = rectCircle.Height = Math.Abs(lineX - e.X);
                     graphics.DrawEllipse(pen, rectCircle);
+
+                    command = new OleDbCommand("INSERT INTO Shapes (Type, Date_Created, Time_Created, Color, Pen_Size) VALUES ('Freestyle', '" + DateTime.Today.ToShortDateString() + "', '" + DateTime.Now.ToShortTimeString() + "', '" + colorDialog1.Color.ToString() + "', '" + trackBarPenSize.Value.ToString() + "')", connection);
+                    command.ExecuteNonQuery();
                     break;
                 case 5:
                     Rectangle rect = new Rectangle();
@@ -204,6 +206,9 @@ namespace csharp_vathmologoumeni_2
                     rect.Width     = Math.Abs(lineX - e.X);
                     rect.Height    = Math.Abs(lineY - e.Y);
                     graphics.DrawRectangle(pen, rect);
+
+                    command = new OleDbCommand("INSERT INTO Shapes (Type, Date_Created, Time_Created, Color, Pen_Size) VALUES ('Freestyle', '" + DateTime.Today.ToShortDateString() + "', '" + DateTime.Now.ToShortTimeString() + "', '" + colorDialog1.Color.ToString() + "', '" + trackBarPenSize.Value.ToString() + "')", connection);
+                    command.ExecuteNonQuery();
                     break;
             }
         }
