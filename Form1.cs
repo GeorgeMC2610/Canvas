@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.OleDb;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -17,22 +18,33 @@ namespace csharp_vathmologoumeni_2
             InitializeComponent();
         }
 
-        int QuickSettingsSelection = 0, dx, dy, lineX, lineY;6
+        int QuickSettingsSelection = 0, dx, dy, lineX, lineY;
         bool canDraw = false;
         Graphics graphics;
         Pen pen;
 
+        OleDbConnection connection;
+
         private void Form1_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'shapes._Shapes' table. You can move, or remove it, as needed.
-            this.shapesTableAdapter.Fill(this.shapes._Shapes);
+            string connString = "Provider=Microsoft.Jet.OLEDB.4.0;;Data Source=database1.mdb";
+            connection = new OleDbConnection(connString);
+            connection.Open();
+
             pen = new Pen(buttonPenColour.BackColor, trackBarPenSize.Value);
             graphics = panel1.CreateGraphics();
+
+            OleDbCommand command = new OleDbCommand("INSERT INTO Shapes (Type, Date_Created, Time_Created) VALUES (?, ?, ?)", connection);
+            command.Parameters.Add("Freestyle", OleDbType.VarChar);
+            command.Parameters.Add(DateTime.Today.ToShortDateString(), OleDbType.DBDate);
+            command.Parameters.Add(DateTime.Today.TimeOfDay.ToString(), OleDbType.DBTime);
+            command.ExecuteNonQuery();
         }
 
         //το κουμπί της εξόδου (θα ρωτάει και αν θέλει ο χρήστης να φύγει)
         private void buttonExit_Click(object sender, EventArgs e)
         {
+            connection.Close();
             Close();
         }
 
@@ -163,11 +175,13 @@ namespace csharp_vathmologoumeni_2
             switch (QuickSettingsSelection)
             {
                 case 1:
-                    labelShape.Text = "Freestyle";
+                    OleDbCommand command = new OleDbCommand("INSERT INTO Shapes (Type, Date_Created, Time_Created) VALUES (?, ?, ?)", connection);
+                    command.Parameters.Add("Freestyle", OleDbType.VarChar);
+                    command.Parameters.Add(DateTime.Today.ToShortDateString(), OleDbType.DBDate);
+                    command.Parameters.Add(DateTime.Today.TimeOfDay.ToString(), OleDbType.DBTime);
                     break;
                 case 2:
                     graphics.DrawLine(pen, e.X, e.Y, lineX, lineY);
-                    labelShape.Text = "Line Segment";
                     break;
                 case 3:
                     Rectangle rectEllipse = new Rectangle();
@@ -176,14 +190,12 @@ namespace csharp_vathmologoumeni_2
                     rectEllipse.Width     = Math.Abs(lineX - e.X);
                     rectEllipse.Height    = Math.Abs(lineY - e.Y);
                     graphics.DrawEllipse(pen, rectEllipse);
-                    labelShape.Text = "Ellipse";
                     break;
                 case 4:
                     Rectangle rectCircle = new Rectangle();
                     rectCircle.X         = rectCircle.Y = lineX;
                     rectCircle.Width     = rectCircle.Height = Math.Abs(lineX - e.X);
                     graphics.DrawEllipse(pen, rectCircle);
-                    labelShape.Text = "Circle";
                     break;
                 case 5:
                     Rectangle rect = new Rectangle();
@@ -192,7 +204,6 @@ namespace csharp_vathmologoumeni_2
                     rect.Width     = Math.Abs(lineX - e.X);
                     rect.Height    = Math.Abs(lineY - e.Y);
                     graphics.DrawRectangle(pen, rect);
-                    labelShape.Text = "Rectangle";
                     break;
             }
         }

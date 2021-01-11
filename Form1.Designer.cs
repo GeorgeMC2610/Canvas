@@ -30,6 +30,8 @@
         {
             this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.shapesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.shapes = new csharp_vathmologoumeni_2.Shapes();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveAsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -51,21 +53,18 @@
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.colorDialog2 = new System.Windows.Forms.ColorDialog();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.buttonCube = new System.Windows.Forms.Button();
             this.buttonHouse = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.labelShape = new System.Windows.Forms.Label();
-            this.shapes = new csharp_vathmologoumeni_2.Shapes();
-            this.shapesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.shapesTableAdapter = new csharp_vathmologoumeni_2.ShapesTableAdapters.ShapesTableAdapter();
+            ((System.ComponentModel.ISupportInitialize)(this.shapesBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.shapes)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.groupBoxQuickSettings.SuspendLayout();
             this.groupBoxDrawingSettings.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarPenSize)).BeginInit();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.shapes)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.shapesBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -85,6 +84,16 @@
             this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
             this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseMove);
             this.panel1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseUp);
+            // 
+            // shapesBindingSource
+            // 
+            this.shapesBindingSource.DataMember = "Shapes";
+            this.shapesBindingSource.DataSource = this.shapes;
+            // 
+            // shapes
+            // 
+            this.shapes.DataSetName = "Shapes";
+            this.shapes.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // menuStrip1
             // 
@@ -334,6 +343,19 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Self-Generating Designs";
             // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.Silver;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button1.ForeColor = System.Drawing.Color.Black;
+            this.button1.Location = new System.Drawing.Point(6, 135);
+            this.button1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(234, 32);
+            this.button1.TabIndex = 12;
+            this.button1.Text = "Stickman";
+            this.button1.UseVisualStyleBackColor = false;
+            // 
             // button3
             // 
             this.button3.BackColor = System.Drawing.Color.Silver;
@@ -373,40 +395,6 @@
             this.buttonHouse.Text = "House";
             this.buttonHouse.UseVisualStyleBackColor = false;
             // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.Silver;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button1.ForeColor = System.Drawing.Color.Black;
-            this.button1.Location = new System.Drawing.Point(6, 135);
-            this.button1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(234, 32);
-            this.button1.TabIndex = 12;
-            this.button1.Text = "Stickman";
-            this.button1.UseVisualStyleBackColor = false;
-            // 
-            // labelShape
-            // 
-            this.labelShape.AutoSize = true;
-            this.labelShape.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.shapesBindingSource, "Type", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.labelShape.Font = new System.Drawing.Font("Microsoft YaHei", 10F, System.Drawing.FontStyle.Bold);
-            this.labelShape.Location = new System.Drawing.Point(14, 792);
-            this.labelShape.Name = "labelShape";
-            this.labelShape.Size = new System.Drawing.Size(22, 19);
-            this.labelShape.TabIndex = 13;
-            this.labelShape.Text = "fs";
-            // 
-            // shapes
-            // 
-            this.shapes.DataSetName = "Shapes";
-            this.shapes.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // shapesBindingSource
-            // 
-            this.shapesBindingSource.DataMember = "Shapes";
-            this.shapesBindingSource.DataSource = this.shapes;
-            // 
             // shapesTableAdapter
             // 
             this.shapesTableAdapter.ClearBeforeFill = true;
@@ -417,7 +405,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(1782, 961);
-            this.Controls.Add(this.labelShape);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.buttonExit);
             this.Controls.Add(this.groupBoxDrawingSettings);
@@ -431,6 +418,8 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Canvas";
             this.Load += new System.EventHandler(this.Form1_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.shapesBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.shapes)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.groupBoxQuickSettings.ResumeLayout(false);
@@ -438,8 +427,6 @@
             this.groupBoxDrawingSettings.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarPenSize)).EndInit();
             this.groupBox1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.shapes)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.shapesBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -473,7 +460,6 @@
         private System.Windows.Forms.Button buttonCube;
         private System.Windows.Forms.Button buttonHouse;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Label labelShape;
         private Shapes shapes;
         private System.Windows.Forms.BindingSource shapesBindingSource;
         private ShapesTableAdapters.ShapesTableAdapter shapesTableAdapter;
