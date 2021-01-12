@@ -41,6 +41,7 @@ namespace csharp_vathmologoumeni_2
                 return;
             }
 
+
            
             pen = new Pen(buttonPenColour.BackColor, trackBarPenSize.Value);
             graphics = panel1.CreateGraphics();

@@ -37,6 +37,7 @@
             this.saveAsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewItemsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.clearToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.goToFolderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.selectColourToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.forBackgroundToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.forPenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -63,7 +64,7 @@
             this.buttonCube = new System.Windows.Forms.Button();
             this.buttonHouse = new System.Windows.Forms.Button();
             this.shapesTableAdapter = new csharp_vathmologoumeni_2.ShapesTableAdapters.ShapesTableAdapter();
-            this.goToFolderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveFileDialogCanvas = new System.Windows.Forms.SaveFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.shapesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.shapes)).BeginInit();
             this.menuStrip1.SuspendLayout();
@@ -130,20 +131,26 @@
             this.clearToolStripMenuItem,
             this.goToFolderToolStripMenuItem});
             this.saveAsToolStripMenuItem.Name = "saveAsToolStripMenuItem";
-            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
             this.saveAsToolStripMenuItem.Text = "Database";
             // 
             // viewItemsToolStripMenuItem
             // 
             this.viewItemsToolStripMenuItem.Name = "viewItemsToolStripMenuItem";
-            this.viewItemsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.viewItemsToolStripMenuItem.Size = new System.Drawing.Size(219, 22);
             this.viewItemsToolStripMenuItem.Text = "View Data";
             // 
             // clearToolStripMenuItem
             // 
             this.clearToolStripMenuItem.Name = "clearToolStripMenuItem";
-            this.clearToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.clearToolStripMenuItem.Size = new System.Drawing.Size(219, 22);
             this.clearToolStripMenuItem.Text = "Clear Data";
+            // 
+            // goToFolderToolStripMenuItem
+            // 
+            this.goToFolderToolStripMenuItem.Name = "goToFolderToolStripMenuItem";
+            this.goToFolderToolStripMenuItem.Size = new System.Drawing.Size(219, 22);
+            this.goToFolderToolStripMenuItem.Text = "Open Folder in File Explorer";
             // 
             // selectColourToolStripMenuItem
             // 
@@ -151,7 +158,7 @@
             this.forBackgroundToolStripMenuItem,
             this.forPenToolStripMenuItem});
             this.selectColourToolStripMenuItem.Name = "selectColourToolStripMenuItem";
-            this.selectColourToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.selectColourToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
             this.selectColourToolStripMenuItem.Text = "Select Color";
             // 
             // forBackgroundToolStripMenuItem
@@ -443,11 +450,9 @@
             // 
             this.shapesTableAdapter.ClearBeforeFill = true;
             // 
-            // goToFolderToolStripMenuItem
+            // saveFileDialogCanvas
             // 
-            this.goToFolderToolStripMenuItem.Name = "goToFolderToolStripMenuItem";
-            this.goToFolderToolStripMenuItem.Size = new System.Drawing.Size(219, 22);
-            this.goToFolderToolStripMenuItem.Text = "Open Folder in File Explorer";
+            this.saveFileDialogCanvas.DefaultExt = "ser";
             // 
             // Form1
             // 
@@ -520,6 +525,7 @@
         private System.Windows.Forms.ToolStripMenuItem forBackgroundToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem forPenToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem goToFolderToolStripMenuItem;
+        private System.Windows.Forms.SaveFileDialog saveFileDialogCanvas;
     }
 }
 
