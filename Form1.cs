@@ -28,10 +28,20 @@ namespace csharp_vathmologoumeni_2
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            string connString = "Provider=Microsoft.Jet.OLEDB.4.0;;Data Source=database1.mdb";
-            connection = new OleDbConnection(connString);
-            connection.Open();
+            try
+            {
+                string connString = "Provider=Microsoft.Jet.OLEDB.4.0;;Data Source=database1.mdb";
+                connection = new OleDbConnection(connString);
+                connection.Open();
+            }
+            catch (Exception exc)
+            {
+                MessageBox.Show("Couldn't open database. Exception error: " + exc.Message + ". \n\n Make sure the Database has EXACTLY the name 'database1.mdb', its path is inside the Debug folder and is saved as Access Database 2002-2003 format.", "Could Not Connect to Database", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Close();
+                return;
+            }
 
+           
             pen = new Pen(buttonPenColour.BackColor, trackBarPenSize.Value);
             graphics = panel1.CreateGraphics();
         }
@@ -160,8 +170,10 @@ namespace csharp_vathmologoumeni_2
 
         private void panel1_MouseUp(object sender, MouseEventArgs e)
         {
+            //καθε φορά που ο χρήστης σταματάει να πατάει το ποντίκι, κάνουμε false την canDraw, ώστε να μην συνεχίζει να ζωγραφίζει
             canDraw = false;
 
+            //ύστερα για κάθε σχήμα που δημιουργεί ο χρήστης, βάζουμε και την κατάλληλη πληροφορία στη βάση
             switch (QuickSettingsSelection)
             {
                 case 1:
