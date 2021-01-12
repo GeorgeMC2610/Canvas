@@ -169,6 +169,24 @@ namespace csharp_vathmologoumeni_2
             }
         }
 
+        private void saveDrawingToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (saveFileDialogCanvas.ShowDialog() == DialogResult.Cancel)
+                return;
+
+            Canvas c = new Canvas(graphics);
+            c.SaveCanvas(saveFileDialogCanvas.FileName);
+        }
+
+        private void loadDrawingToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (openFileDialogCanvas.ShowDialog() == DialogResult.Cancel)
+                return;
+
+            Canvas c = new Canvas(graphics);
+            graphics   = c.LoadCanvas(openFileDialogCanvas.FileName);
+        }
+
         private void panel1_MouseUp(object sender, MouseEventArgs e)
         {
             //καθε φορά που ο χρήστης σταματάει να πατάει το ποντίκι, κάνουμε false την canDraw, ώστε να μην συνεχίζει να ζωγραφίζει

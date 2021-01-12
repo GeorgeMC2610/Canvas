@@ -14,46 +14,49 @@ namespace csharp_vathmologoumeni_2
     [Serializable]
     class Canvas
     {
-        public Panel panel { get; set; }
+        public Graphics panel { get; set; }
 
-        public Canvas(Panel panel)
+        public Canvas(Graphics panel)
         {
-            this.panel    = panel;
+            this.panel = panel;
+        }
+
+        public Canvas()
+        {
+            this.panel = null;
         }
 
         public void SaveCanvas(string path)
         {
             IFormatter formatter = new BinaryFormatter();
-            Stream stream = new FileStream(path, FileMode.OpenOrCreate, FileAccess.Write);
+            Stream stream        = new FileStream(path, FileMode.OpenOrCreate, FileAccess.Write);
 
             formatter.Serialize(stream, this);
             stream.Close();
         }
 
-        public Panel LoadCanvas(string path)
+        public Graphics LoadCanvas(string path)
         {
+            Canvas canvas = new Canvas();
+
             try
             {
-                Panel panel;
-
                 IFormatter formatter = new BinaryFormatter();
                 Stream stream = new FileStream(path, FileMode.Open, FileAccess.Read);
 
-                panel = (Panel) formatter.Deserialize(stream);
+                canvas = (Canvas) formatter.Deserialize(stream);
                 stream.Close();
-
-                return panel;
             }
             catch (FileNotFoundException e1)
             {
                 MessageBox.Show("Error Message: " + e1.Message + "\n\nNo such file found.", "File Not Found",MessageBoxButtons.OK);
-                return new Panel();
             }
             catch (SerializationException)
             {
                 //do nothing.
-                return new Panel();
             }
+
+            return canvas.panel;
         }
     }
 }
