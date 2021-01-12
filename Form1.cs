@@ -36,13 +36,6 @@ namespace csharp_vathmologoumeni_2
             graphics = panel1.CreateGraphics();
         }
 
-        //το κουμπί της εξόδου (θα ρωτάει και αν θέλει ο χρήστης να φύγει)
-        private void buttonExit_Click(object sender, EventArgs e)
-        {
-            connection.Close();
-            Close();
-        }
-
         //κουμπί για την αλλαγή του pen
         private void buttonPenColour_Click(object sender, EventArgs e)
         {
@@ -135,6 +128,8 @@ namespace csharp_vathmologoumeni_2
             lineY = e.Y;
         }
 
+        
+
         //πράττουμε ανάλογα με τις ενέργειες που έχει επιλέξει ο χρήστης.
         private void panel1_MouseMove(object sender, MouseEventArgs e)
         {
@@ -176,7 +171,7 @@ namespace csharp_vathmologoumeni_2
                 case 2:
                     graphics.DrawLine(pen, e.X, e.Y, lineX, lineY);
 
-                    command = new OleDbCommand("INSERT INTO Shapes (Type, Date_Created, Time_Created, Color, Pen_Size) VALUES ('Freestyle', '" + DateTime.Today.ToShortDateString() + "', '" + DateTime.Now.ToShortTimeString() + "', '" + colorDialog1.Color.ToString() + "', '" + trackBarPenSize.Value.ToString() + "')", connection);
+                    command = new OleDbCommand("INSERT INTO Shapes (Type, Date_Created, Time_Created, Color, Pen_Size) VALUES ('Line Segment', '" + DateTime.Today.ToShortDateString() + "', '" + DateTime.Now.ToShortTimeString() + "', '" + colorDialog1.Color.ToString() + "', '" + trackBarPenSize.Value.ToString() + "')", connection);
                     command.ExecuteNonQuery();
                     break;
                 case 3:
@@ -187,7 +182,7 @@ namespace csharp_vathmologoumeni_2
                     rectEllipse.Height    = Math.Abs(lineY - e.Y);
                     graphics.DrawEllipse(pen, rectEllipse);
 
-                    command = new OleDbCommand("INSERT INTO Shapes (Type, Date_Created, Time_Created, Color, Pen_Size) VALUES ('Freestyle', '" + DateTime.Today.ToShortDateString() + "', '" + DateTime.Now.ToShortTimeString() + "', '" + colorDialog1.Color.ToString() + "', '" + trackBarPenSize.Value.ToString() + "')", connection);
+                    command = new OleDbCommand("INSERT INTO Shapes (Type, Date_Created, Time_Created, Color, Pen_Size) VALUES ('Ellipse', '" + DateTime.Today.ToShortDateString() + "', '" + DateTime.Now.ToShortTimeString() + "', '" + colorDialog1.Color.ToString() + "', '" + trackBarPenSize.Value.ToString() + "')", connection);
                     command.ExecuteNonQuery();
                     break;
                 case 4:
@@ -196,7 +191,7 @@ namespace csharp_vathmologoumeni_2
                     rectCircle.Width     = rectCircle.Height = Math.Abs(lineX - e.X);
                     graphics.DrawEllipse(pen, rectCircle);
 
-                    command = new OleDbCommand("INSERT INTO Shapes (Type, Date_Created, Time_Created, Color, Pen_Size) VALUES ('Freestyle', '" + DateTime.Today.ToShortDateString() + "', '" + DateTime.Now.ToShortTimeString() + "', '" + colorDialog1.Color.ToString() + "', '" + trackBarPenSize.Value.ToString() + "')", connection);
+                    command = new OleDbCommand("INSERT INTO Shapes (Type, Date_Created, Time_Created, Color, Pen_Size) VALUES ('Circle', '" + DateTime.Today.ToShortDateString() + "', '" + DateTime.Now.ToShortTimeString() + "', '" + colorDialog1.Color.ToString() + "', '" + trackBarPenSize.Value.ToString() + "')", connection);
                     command.ExecuteNonQuery();
                     break;
                 case 5:
@@ -207,7 +202,7 @@ namespace csharp_vathmologoumeni_2
                     rect.Height    = Math.Abs(lineY - e.Y);
                     graphics.DrawRectangle(pen, rect);
 
-                    command = new OleDbCommand("INSERT INTO Shapes (Type, Date_Created, Time_Created, Color, Pen_Size) VALUES ('Freestyle', '" + DateTime.Today.ToShortDateString() + "', '" + DateTime.Now.ToShortTimeString() + "', '" + colorDialog1.Color.ToString() + "', '" + trackBarPenSize.Value.ToString() + "')", connection);
+                    command = new OleDbCommand("INSERT INTO Shapes (Type, Date_Created, Time_Created, Color, Pen_Size) VALUES ('Rectangle', '" + DateTime.Today.ToShortDateString() + "', '" + DateTime.Now.ToShortTimeString() + "', '" + colorDialog1.Color.ToString() + "', '" + trackBarPenSize.Value.ToString() + "')", connection);
                     command.ExecuteNonQuery();
                     break;
             }
@@ -216,6 +211,20 @@ namespace csharp_vathmologoumeni_2
         private void panel1_SizeChanged(object sender, EventArgs e)
         {
             graphics = panel1.CreateGraphics();
+        }
+
+        //το κουμπί της εξόδου (θα ρωτάει και αν θέλει ο χρήστης να φύγει)
+        private void buttonExit_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Are you sure you want to leave?", "Quit Canvas", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
+                return;
+
+            Close();
+        }
+
+        private void Form1_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            connection.Close();
         }
     }
 }
