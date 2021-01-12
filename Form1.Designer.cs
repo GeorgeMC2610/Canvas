@@ -427,8 +427,8 @@
             // 
             // saveFileDialogCanvas
             // 
-            this.saveFileDialogCanvas.DefaultExt = "ser";
-            this.saveFileDialogCanvas.Filter = "BMP Files|*.bmp";
+            this.saveFileDialogCanvas.DefaultExt = "bmp";
+            this.saveFileDialogCanvas.Filter = "BMP Files|*.bmp|JPG Files|*.jpg|PNG Files|*.png";
             // 
             // fileToolStripMenuItem1
             // 

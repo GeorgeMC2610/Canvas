@@ -24,16 +24,12 @@ namespace csharp_vathmologoumeni_2
             this.graphics = graphics;
         }
 
-        public Canvas()
-        {
-            this.panel = null;
-        }
-
         public void SaveCanvas(string path)
         {
-            Bitmap picture = new Bitmap(panel.Width, panel.Height, graphics);
+            Bitmap picture = new Bitmap(panel.Width, panel.Height);
             panel.DrawToBitmap(picture, new Rectangle(0, 0, panel.Width, panel.Height));
-            picture.Save(path, ImageFormat.Bmp);
+
+            picture.Save(path, ImageFormat.MemoryBmp);
             picture.Dispose();
         }
 
