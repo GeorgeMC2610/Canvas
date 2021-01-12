@@ -428,7 +428,7 @@
             // saveFileDialogCanvas
             // 
             this.saveFileDialogCanvas.DefaultExt = "ser";
-            this.saveFileDialogCanvas.Filter = "Serialized files|*.ser";
+            this.saveFileDialogCanvas.Filter = "BMP Files|*.bmp";
             // 
             // fileToolStripMenuItem1
             // 
@@ -443,8 +443,8 @@
             // saveDrawingToolStripMenuItem
             // 
             this.saveDrawingToolStripMenuItem.Name = "saveDrawingToolStripMenuItem";
-            this.saveDrawingToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.saveDrawingToolStripMenuItem.Text = "Save Drawing";
+            this.saveDrawingToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
+            this.saveDrawingToolStripMenuItem.Text = "Save Drawing As Jpeg";
             this.saveDrawingToolStripMenuItem.Click += new System.EventHandler(this.saveDrawingToolStripMenuItem_Click);
             // 
             // loadDrawingToolStripMenuItem

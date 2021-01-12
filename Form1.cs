@@ -174,17 +174,13 @@ namespace csharp_vathmologoumeni_2
             if (saveFileDialogCanvas.ShowDialog() == DialogResult.Cancel)
                 return;
 
-            Canvas c = new Canvas(graphics);
+            Canvas c = new Canvas(panel1, graphics);
             c.SaveCanvas(saveFileDialogCanvas.FileName);
         }
 
         private void loadDrawingToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (openFileDialogCanvas.ShowDialog() == DialogResult.Cancel)
-                return;
-
-            Canvas c = new Canvas(graphics);
-            graphics   = c.LoadCanvas(openFileDialogCanvas.FileName);
+           
         }
 
         private void panel1_MouseUp(object sender, MouseEventArgs e)
