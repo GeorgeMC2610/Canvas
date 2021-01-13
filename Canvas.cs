@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
@@ -12,7 +13,7 @@ using System.Windows.Forms;
 
 namespace csharp_vathmologoumeni_2
 {
-    [Serializable]
+    //[Serializable]
     class Canvas
     {
         public Graphics graphics { get; set; }
@@ -26,12 +27,22 @@ namespace csharp_vathmologoumeni_2
 
         public void SaveCanvas(string path)
         {
-            Bitmap picture = new Bitmap(panel.Width, panel.Height, graphics);
+            /*Bitmap picture = new Bitmap(panel.Width, panel.Height);
             panel.DrawToBitmap(picture, new Rectangle(0, 0, panel.Width, panel.Height));
-            graphics = panel.CreateGraphics();
 
-            picture.Save(path, ImageFormat.MemoryBmp);
-            picture.Dispose();
+            picture.Save(stream, ImageFormat.Bmp);
+            picture.Dispose();*/
+
+            Image image = Image.FromFile(path);
+            graphics = Graphics.FromImage(image);
+            graphics.DrawImage(image, new Rectangle(0, 0, panel.Width, panel.Height), 0, 0, panel.Width, panel.Height, GraphicsUnit.Pixel);
+            image.Save(path);
+            image.Dispose();
+        }
+
+        public void SaveCanvas(string path, string aaaaa)
+        {
+
         }
 
         //public Graphics LoadCanvas(string path)

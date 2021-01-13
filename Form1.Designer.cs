@@ -475,7 +475,7 @@
             // 
             // saveFileDialogCanvas
             // 
-            this.saveFileDialogCanvas.DefaultExt = "bmp";
+            this.saveFileDialogCanvas.DefaultExt = "jpg";
             this.saveFileDialogCanvas.Filter = "BMP Files|*.bmp|JPG Files|*.jpg|PNG Files|*.png";
             // 
             // openFileDialogCanvas
