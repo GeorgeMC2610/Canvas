@@ -138,7 +138,6 @@ namespace csharp_vathmologoumeni_2
             }
 
             Button pressedbutton = (Button)sender;
-            
             switch (pressedbutton.Tag)
             {
                 case 1:
@@ -154,11 +153,16 @@ namespace csharp_vathmologoumeni_2
                     timerStickman.Enabled = true;
                     break;
             }
+
+            ButtonHandling(false);
         }
 
         private void ButtonHandling(bool EnableOrDisable)
         {
-            this.Button
+            foreach (Control c in this.Controls)
+            {
+                c.Enabled = EnableOrDisable;
+            }
         }
 
 
