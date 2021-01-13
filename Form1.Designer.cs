@@ -33,12 +33,7 @@
             this.shapesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.shapes = new csharp_vathmologoumeni_2.Shapes();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.fileToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.loadDrawingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.manageDatabaseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.seeItemsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.clearDatabaseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ToolsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.selectColourToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.forBackgroundToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.forPenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -67,7 +62,16 @@
             this.shapesTableAdapter = new csharp_vathmologoumeni_2.ShapesTableAdapters.ShapesTableAdapter();
             this.saveFileDialogCanvas = new System.Windows.Forms.SaveFileDialog();
             this.openFileDialogCanvas = new System.Windows.Forms.OpenFileDialog();
-            this.timerDrawing = new System.Windows.Forms.Timer(this.components);
+            this.timerHouse = new System.Windows.Forms.Timer(this.components);
+            this.selectBackgroundImageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.selectBackgroundImageHandlingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripComboBoxHandling = new System.Windows.Forms.ToolStripComboBox();
+            this.manageDatabaseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.viewItemsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.clearDatabaseTableToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.timerCube = new System.Windows.Forms.Timer(this.components);
+            this.timerMail = new System.Windows.Forms.Timer(this.components);
+            this.timerStickman = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.shapesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.shapes)).BeginInit();
             this.menuStrip1.SuspendLayout();
@@ -109,8 +113,7 @@
             // 
             this.menuStrip1.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.fileToolStripMenuItem1,
-            this.fileToolStripMenuItem,
+            this.ToolsToolStripMenuItem,
             this.helpToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
@@ -119,50 +122,16 @@
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
-            // fileToolStripMenuItem1
+            // ToolsToolStripMenuItem
             // 
-            this.fileToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.loadDrawingToolStripMenuItem,
+            this.ToolsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.selectColourToolStripMenuItem,
+            this.selectBackgroundImageToolStripMenuItem,
+            this.selectBackgroundImageHandlingToolStripMenuItem,
             this.manageDatabaseToolStripMenuItem});
-            this.fileToolStripMenuItem1.Name = "fileToolStripMenuItem1";
-            this.fileToolStripMenuItem1.Size = new System.Drawing.Size(37, 20);
-            this.fileToolStripMenuItem1.Text = "File";
-            // 
-            // loadDrawingToolStripMenuItem
-            // 
-            this.loadDrawingToolStripMenuItem.Name = "loadDrawingToolStripMenuItem";
-            this.loadDrawingToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
-            this.loadDrawingToolStripMenuItem.Text = "Load Drawing";
-            this.loadDrawingToolStripMenuItem.Click += new System.EventHandler(this.loadDrawingToolStripMenuItem_Click);
-            // 
-            // manageDatabaseToolStripMenuItem
-            // 
-            this.manageDatabaseToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.seeItemsToolStripMenuItem,
-            this.clearDatabaseToolStripMenuItem});
-            this.manageDatabaseToolStripMenuItem.Name = "manageDatabaseToolStripMenuItem";
-            this.manageDatabaseToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
-            this.manageDatabaseToolStripMenuItem.Text = "Manage Database";
-            // 
-            // seeItemsToolStripMenuItem
-            // 
-            this.seeItemsToolStripMenuItem.Name = "seeItemsToolStripMenuItem";
-            this.seeItemsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.seeItemsToolStripMenuItem.Text = "Display Items";
-            // 
-            // clearDatabaseToolStripMenuItem
-            // 
-            this.clearDatabaseToolStripMenuItem.Name = "clearDatabaseToolStripMenuItem";
-            this.clearDatabaseToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.clearDatabaseToolStripMenuItem.Text = "Clear Database";
-            // 
-            // fileToolStripMenuItem
-            // 
-            this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.selectColourToolStripMenuItem});
-            this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(57, 20);
-            this.fileToolStripMenuItem.Text = "Canvas";
+            this.ToolsToolStripMenuItem.Name = "ToolsToolStripMenuItem";
+            this.ToolsToolStripMenuItem.Size = new System.Drawing.Size(46, 20);
+            this.ToolsToolStripMenuItem.Text = "Tools";
             // 
             // selectColourToolStripMenuItem
             // 
@@ -170,19 +139,19 @@
             this.forBackgroundToolStripMenuItem,
             this.forPenToolStripMenuItem});
             this.selectColourToolStripMenuItem.Name = "selectColourToolStripMenuItem";
-            this.selectColourToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
+            this.selectColourToolStripMenuItem.Size = new System.Drawing.Size(260, 22);
             this.selectColourToolStripMenuItem.Text = "Select Color";
             // 
             // forBackgroundToolStripMenuItem
             // 
             this.forBackgroundToolStripMenuItem.Name = "forBackgroundToolStripMenuItem";
-            this.forBackgroundToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
+            this.forBackgroundToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.forBackgroundToolStripMenuItem.Text = "For Background";
             // 
             // forPenToolStripMenuItem
             // 
             this.forPenToolStripMenuItem.Name = "forPenToolStripMenuItem";
-            this.forPenToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
+            this.forPenToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.forPenToolStripMenuItem.Text = "For Pen";
             // 
             // helpToolStripMenuItem
@@ -414,6 +383,7 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(234, 32);
             this.button1.TabIndex = 12;
+            this.button1.Tag = "4";
             this.button1.Text = "Stickman";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.SelfGeneratingDesigns_Click);
@@ -428,6 +398,7 @@
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(234, 32);
             this.button3.TabIndex = 11;
+            this.button3.Tag = "3";
             this.button3.Text = "Mail";
             this.button3.UseVisualStyleBackColor = false;
             this.button3.Click += new System.EventHandler(this.SelfGeneratingDesigns_Click);
@@ -442,6 +413,7 @@
             this.buttonCube.Name = "buttonCube";
             this.buttonCube.Size = new System.Drawing.Size(234, 32);
             this.buttonCube.TabIndex = 10;
+            this.buttonCube.Tag = "2";
             this.buttonCube.Text = "Cube";
             this.buttonCube.UseVisualStyleBackColor = false;
             this.buttonCube.Click += new System.EventHandler(this.SelfGeneratingDesigns_Click);
@@ -456,6 +428,7 @@
             this.buttonHouse.Name = "buttonHouse";
             this.buttonHouse.Size = new System.Drawing.Size(234, 32);
             this.buttonHouse.TabIndex = 9;
+            this.buttonHouse.Tag = "1";
             this.buttonHouse.Text = "House";
             this.buttonHouse.UseVisualStyleBackColor = false;
             this.buttonHouse.Click += new System.EventHandler(this.SelfGeneratingDesigns_Click);
@@ -474,9 +447,75 @@
             this.openFileDialogCanvas.DefaultExt = "ser";
             this.openFileDialogCanvas.Filter = "Serialized files|*.ser";
             // 
-            // timerDrawing
+            // timerHouse
             // 
-            this.timerDrawing.Interval = 300;
+            this.timerHouse.Interval = 300;
+            // 
+            // selectBackgroundImageToolStripMenuItem
+            // 
+            this.selectBackgroundImageToolStripMenuItem.Name = "selectBackgroundImageToolStripMenuItem";
+            this.selectBackgroundImageToolStripMenuItem.Size = new System.Drawing.Size(260, 22);
+            this.selectBackgroundImageToolStripMenuItem.Text = "Select Background Image...";
+            // 
+            // selectBackgroundImageHandlingToolStripMenuItem
+            // 
+            this.selectBackgroundImageHandlingToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripComboBoxHandling});
+            this.selectBackgroundImageHandlingToolStripMenuItem.Name = "selectBackgroundImageHandlingToolStripMenuItem";
+            this.selectBackgroundImageHandlingToolStripMenuItem.Size = new System.Drawing.Size(260, 22);
+            this.selectBackgroundImageHandlingToolStripMenuItem.Text = "Select Background Image Handling";
+            // 
+            // toolStripComboBoxHandling
+            // 
+            this.toolStripComboBoxHandling.AutoCompleteCustomSource.AddRange(new string[] {
+            "None",
+            "Tile",
+            "Center",
+            "Strech",
+            "Zoom"});
+            this.toolStripComboBoxHandling.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.toolStripComboBoxHandling.Items.AddRange(new object[] {
+            "None",
+            "Tile",
+            "Center",
+            "Strech",
+            "Zoom"});
+            this.toolStripComboBoxHandling.MergeAction = System.Windows.Forms.MergeAction.MatchOnly;
+            this.toolStripComboBoxHandling.Name = "toolStripComboBoxHandling";
+            this.toolStripComboBoxHandling.Size = new System.Drawing.Size(121, 23);
+            // 
+            // manageDatabaseToolStripMenuItem
+            // 
+            this.manageDatabaseToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.viewItemsToolStripMenuItem,
+            this.clearDatabaseTableToolStripMenuItem});
+            this.manageDatabaseToolStripMenuItem.Name = "manageDatabaseToolStripMenuItem";
+            this.manageDatabaseToolStripMenuItem.Size = new System.Drawing.Size(260, 22);
+            this.manageDatabaseToolStripMenuItem.Text = "Manage Database";
+            // 
+            // viewItemsToolStripMenuItem
+            // 
+            this.viewItemsToolStripMenuItem.Name = "viewItemsToolStripMenuItem";
+            this.viewItemsToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
+            this.viewItemsToolStripMenuItem.Text = "View Items";
+            // 
+            // clearDatabaseTableToolStripMenuItem
+            // 
+            this.clearDatabaseTableToolStripMenuItem.Name = "clearDatabaseTableToolStripMenuItem";
+            this.clearDatabaseTableToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
+            this.clearDatabaseTableToolStripMenuItem.Text = "Clear Database Table";
+            // 
+            // timerCube
+            // 
+            this.timerCube.Interval = 300;
+            // 
+            // timerMail
+            // 
+            this.timerMail.Interval = 300;
+            // 
+            // timerStickman
+            // 
+            this.timerStickman.Interval = 300;
             // 
             // Form1
             // 
@@ -526,7 +565,7 @@
         private System.Windows.Forms.Button buttonPenColour;
         private System.Windows.Forms.Button buttonSelectBackgroundColour;
         private System.Windows.Forms.Button buttonExit;
-        private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ToolsToolStripMenuItem;
         private System.Windows.Forms.Button buttonEraseEverything;
         private System.Windows.Forms.Button buttonEraser;
         private System.Windows.Forms.ColorDialog colorDialog1;
@@ -546,13 +585,17 @@
         private System.Windows.Forms.ToolStripMenuItem forBackgroundToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem forPenToolStripMenuItem;
         private System.Windows.Forms.SaveFileDialog saveFileDialogCanvas;
-        private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem loadDrawingToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem manageDatabaseToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem seeItemsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem clearDatabaseToolStripMenuItem;
         private System.Windows.Forms.OpenFileDialog openFileDialogCanvas;
-        private System.Windows.Forms.Timer timerDrawing;
+        private System.Windows.Forms.Timer timerHouse;
+        private System.Windows.Forms.ToolStripMenuItem selectBackgroundImageToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem selectBackgroundImageHandlingToolStripMenuItem;
+        private System.Windows.Forms.ToolStripComboBox toolStripComboBoxHandling;
+        private System.Windows.Forms.ToolStripMenuItem manageDatabaseToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem viewItemsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem clearDatabaseTableToolStripMenuItem;
+        private System.Windows.Forms.Timer timerCube;
+        private System.Windows.Forms.Timer timerMail;
+        private System.Windows.Forms.Timer timerStickman;
     }
 }
 

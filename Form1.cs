@@ -128,6 +128,40 @@ namespace csharp_vathmologoumeni_2
             graphics.Clear(panel1.BackColor);
         }
 
+        private void SelfGeneratingDesigns_Click(object sender, EventArgs e)
+        {
+            //αν ο χώρος που θα ζωγραφίσει το πρόγραμμα είναι πολύ μικρός, τότε δεν μπαίνουμε σε αυτήν την διαδικασία. Δείχνουμε ανάλογο μήνυμα στον χρήστη
+            if (panel1.Width < 500 || panel1.Height < 400)
+            {
+                MessageBox.Show("The panel is not big enough to draw. Resize the panel, so it has a bigger capacity and then try again", "ERROR: Panel is too small", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            Button pressedbutton = (Button)sender;
+            
+            switch (pressedbutton.Tag)
+            {
+                case 1:
+                    timerHouse.Enabled = true;
+                    break;
+                case 2:
+                    timerCube.Enabled = true;
+                    break;
+                case 3:
+                    timerMail.Enabled = true;
+                    break;
+                case 4:
+                    timerStickman.Enabled = true;
+                    break;
+            }
+        }
+
+        private void ButtonHandling(bool EnableOrDisable)
+        {
+            this.Button
+        }
+
+
         //αν το ποντίκι είναι πατημένο εντός του πάνελ, τότε ενεργοποιούμε την canDraw, ώστε να μπορεί να ζωγραφίσει ο χρήστης
         private void panel1_MouseDown(object sender, MouseEventArgs e)
         {
@@ -138,8 +172,6 @@ namespace csharp_vathmologoumeni_2
             lineX = e.X;
             lineY = e.Y;
         }
-
-        
 
         //πράττουμε ανάλογα με τις ενέργειες που έχει επιλέξει ο χρήστης.
         private void panel1_MouseMove(object sender, MouseEventArgs e)
@@ -167,27 +199,6 @@ namespace csharp_vathmologoumeni_2
                     dy = e.Y;
                     break;
             }
-        }
-
-        private void loadDrawingToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-           
-        }
-
-        private void SelfGeneratingDesigns_Click(object sender, EventArgs e)
-        {
-            //αν ο χώρος που θα ζωγραφίσει το πρόγραμμα είναι πολύ μικρός, τότε δεν μπαίνουμε σε αυτήν την διαδικασία. Δείχνουμε ανάλογο μήνυμα στον χρήστη
-            if (panel1.Width < 500 || panel1.Height < 400)
-            {
-                MessageBox.Show("The panel is not big enough to draw. Resize the panel, so it has a bigger capacity and then try again", "ERROR: Panel is too small", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
-            int relative_x = panel1.Width / 2;
-            int relative_y = panel1.Height / 2;
-            int modifier = 2 * panel1.Width / panel1.Height;
-
-            graphics.DrawLine(pen, relative_x, relative_y, relative_x, relative_y - (10*modifier));
         }
 
         private void panel1_MouseUp(object sender, MouseEventArgs e)
