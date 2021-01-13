@@ -33,6 +33,12 @@
             this.shapesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.shapes = new csharp_vathmologoumeni_2.Shapes();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.fileToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveDrawingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.loadDrawingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.manageDatabaseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.seeItemsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.clearDatabaseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.selectColourToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.forBackgroundToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -54,27 +60,22 @@
             this.buttonExit = new System.Windows.Forms.Button();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.colorDialog2 = new System.Windows.Forms.ColorDialog();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBoxSelfGeneratingDesigns = new System.Windows.Forms.GroupBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.buttonCube = new System.Windows.Forms.Button();
             this.buttonHouse = new System.Windows.Forms.Button();
             this.shapesTableAdapter = new csharp_vathmologoumeni_2.ShapesTableAdapters.ShapesTableAdapter();
             this.saveFileDialogCanvas = new System.Windows.Forms.SaveFileDialog();
-            this.fileToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.saveDrawingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.loadDrawingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.manageDatabaseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.seeItemsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.clearDatabaseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openFileDialogCanvas = new System.Windows.Forms.OpenFileDialog();
+            this.timerDrawing = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.shapesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.shapes)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.groupBoxQuickSettings.SuspendLayout();
             this.groupBoxDrawingSettings.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarPenSize)).BeginInit();
-            this.groupBox1.SuspendLayout();
+            this.groupBoxSelfGeneratingDesigns.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -119,6 +120,51 @@
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
+            // fileToolStripMenuItem1
+            // 
+            this.fileToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.saveDrawingToolStripMenuItem,
+            this.loadDrawingToolStripMenuItem,
+            this.manageDatabaseToolStripMenuItem});
+            this.fileToolStripMenuItem1.Name = "fileToolStripMenuItem1";
+            this.fileToolStripMenuItem1.Size = new System.Drawing.Size(37, 20);
+            this.fileToolStripMenuItem1.Text = "File";
+            // 
+            // saveDrawingToolStripMenuItem
+            // 
+            this.saveDrawingToolStripMenuItem.Name = "saveDrawingToolStripMenuItem";
+            this.saveDrawingToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
+            this.saveDrawingToolStripMenuItem.Text = "Save Drawing As Jpeg";
+            this.saveDrawingToolStripMenuItem.Click += new System.EventHandler(this.saveDrawingToolStripMenuItem_Click);
+            // 
+            // loadDrawingToolStripMenuItem
+            // 
+            this.loadDrawingToolStripMenuItem.Name = "loadDrawingToolStripMenuItem";
+            this.loadDrawingToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
+            this.loadDrawingToolStripMenuItem.Text = "Load Drawing";
+            this.loadDrawingToolStripMenuItem.Click += new System.EventHandler(this.loadDrawingToolStripMenuItem_Click);
+            // 
+            // manageDatabaseToolStripMenuItem
+            // 
+            this.manageDatabaseToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.seeItemsToolStripMenuItem,
+            this.clearDatabaseToolStripMenuItem});
+            this.manageDatabaseToolStripMenuItem.Name = "manageDatabaseToolStripMenuItem";
+            this.manageDatabaseToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
+            this.manageDatabaseToolStripMenuItem.Text = "Manage Database";
+            // 
+            // seeItemsToolStripMenuItem
+            // 
+            this.seeItemsToolStripMenuItem.Name = "seeItemsToolStripMenuItem";
+            this.seeItemsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.seeItemsToolStripMenuItem.Text = "Display Items";
+            // 
+            // clearDatabaseToolStripMenuItem
+            // 
+            this.clearDatabaseToolStripMenuItem.Name = "clearDatabaseToolStripMenuItem";
+            this.clearDatabaseToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.clearDatabaseToolStripMenuItem.Text = "Clear Database";
+            // 
             // fileToolStripMenuItem
             // 
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -133,19 +179,19 @@
             this.forBackgroundToolStripMenuItem,
             this.forPenToolStripMenuItem});
             this.selectColourToolStripMenuItem.Name = "selectColourToolStripMenuItem";
-            this.selectColourToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.selectColourToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
             this.selectColourToolStripMenuItem.Text = "Select Color";
             // 
             // forBackgroundToolStripMenuItem
             // 
             this.forBackgroundToolStripMenuItem.Name = "forBackgroundToolStripMenuItem";
-            this.forBackgroundToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.forBackgroundToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
             this.forBackgroundToolStripMenuItem.Text = "For Background";
             // 
             // forPenToolStripMenuItem
             // 
             this.forPenToolStripMenuItem.Name = "forPenToolStripMenuItem";
-            this.forPenToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.forPenToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
             this.forPenToolStripMenuItem.Text = "For Pen";
             // 
             // helpToolStripMenuItem
@@ -263,7 +309,6 @@
             // 
             // groupBoxDrawingSettings
             // 
-            this.groupBoxDrawingSettings.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.groupBoxDrawingSettings.Controls.Add(this.labelPenSize);
             this.groupBoxDrawingSettings.Controls.Add(this.trackBarPenSize);
             this.groupBoxDrawingSettings.Controls.Add(this.buttonEraseEverything);
@@ -355,19 +400,18 @@
             this.buttonExit.UseVisualStyleBackColor = false;
             this.buttonExit.Click += new System.EventHandler(this.buttonExit_Click);
             // 
-            // groupBox1
+            // groupBoxSelfGeneratingDesigns
             // 
-            this.groupBox1.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.groupBox1.Controls.Add(this.button1);
-            this.groupBox1.Controls.Add(this.button3);
-            this.groupBox1.Controls.Add(this.buttonCube);
-            this.groupBox1.Controls.Add(this.buttonHouse);
-            this.groupBox1.Location = new System.Drawing.Point(12, 591);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(246, 189);
-            this.groupBox1.TabIndex = 10;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Self-Generating Designs";
+            this.groupBoxSelfGeneratingDesigns.Controls.Add(this.button1);
+            this.groupBoxSelfGeneratingDesigns.Controls.Add(this.button3);
+            this.groupBoxSelfGeneratingDesigns.Controls.Add(this.buttonCube);
+            this.groupBoxSelfGeneratingDesigns.Controls.Add(this.buttonHouse);
+            this.groupBoxSelfGeneratingDesigns.Location = new System.Drawing.Point(12, 591);
+            this.groupBoxSelfGeneratingDesigns.Name = "groupBoxSelfGeneratingDesigns";
+            this.groupBoxSelfGeneratingDesigns.Size = new System.Drawing.Size(246, 189);
+            this.groupBoxSelfGeneratingDesigns.TabIndex = 10;
+            this.groupBoxSelfGeneratingDesigns.TabStop = false;
+            this.groupBoxSelfGeneratingDesigns.Text = "Self-Generating Designs";
             // 
             // button1
             // 
@@ -381,6 +425,7 @@
             this.button1.TabIndex = 12;
             this.button1.Text = "Stickman";
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.SelfGeneratingDesigns_Click);
             // 
             // button3
             // 
@@ -394,6 +439,7 @@
             this.button3.TabIndex = 11;
             this.button3.Text = "Mail";
             this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.SelfGeneratingDesigns_Click);
             // 
             // buttonCube
             // 
@@ -407,6 +453,7 @@
             this.buttonCube.TabIndex = 10;
             this.buttonCube.Text = "Cube";
             this.buttonCube.UseVisualStyleBackColor = false;
+            this.buttonCube.Click += new System.EventHandler(this.SelfGeneratingDesigns_Click);
             // 
             // buttonHouse
             // 
@@ -420,6 +467,7 @@
             this.buttonHouse.TabIndex = 9;
             this.buttonHouse.Text = "House";
             this.buttonHouse.UseVisualStyleBackColor = false;
+            this.buttonHouse.Click += new System.EventHandler(this.SelfGeneratingDesigns_Click);
             // 
             // shapesTableAdapter
             // 
@@ -430,55 +478,14 @@
             this.saveFileDialogCanvas.DefaultExt = "bmp";
             this.saveFileDialogCanvas.Filter = "BMP Files|*.bmp|JPG Files|*.jpg|PNG Files|*.png";
             // 
-            // fileToolStripMenuItem1
-            // 
-            this.fileToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.saveDrawingToolStripMenuItem,
-            this.loadDrawingToolStripMenuItem,
-            this.manageDatabaseToolStripMenuItem});
-            this.fileToolStripMenuItem1.Name = "fileToolStripMenuItem1";
-            this.fileToolStripMenuItem1.Size = new System.Drawing.Size(37, 20);
-            this.fileToolStripMenuItem1.Text = "File";
-            // 
-            // saveDrawingToolStripMenuItem
-            // 
-            this.saveDrawingToolStripMenuItem.Name = "saveDrawingToolStripMenuItem";
-            this.saveDrawingToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
-            this.saveDrawingToolStripMenuItem.Text = "Save Drawing As Jpeg";
-            this.saveDrawingToolStripMenuItem.Click += new System.EventHandler(this.saveDrawingToolStripMenuItem_Click);
-            // 
-            // loadDrawingToolStripMenuItem
-            // 
-            this.loadDrawingToolStripMenuItem.Name = "loadDrawingToolStripMenuItem";
-            this.loadDrawingToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.loadDrawingToolStripMenuItem.Text = "Load Drawing";
-            this.loadDrawingToolStripMenuItem.Click += new System.EventHandler(this.loadDrawingToolStripMenuItem_Click);
-            // 
-            // manageDatabaseToolStripMenuItem
-            // 
-            this.manageDatabaseToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.seeItemsToolStripMenuItem,
-            this.clearDatabaseToolStripMenuItem});
-            this.manageDatabaseToolStripMenuItem.Name = "manageDatabaseToolStripMenuItem";
-            this.manageDatabaseToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.manageDatabaseToolStripMenuItem.Text = "Manage Database";
-            // 
-            // seeItemsToolStripMenuItem
-            // 
-            this.seeItemsToolStripMenuItem.Name = "seeItemsToolStripMenuItem";
-            this.seeItemsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.seeItemsToolStripMenuItem.Text = "Display Items";
-            // 
-            // clearDatabaseToolStripMenuItem
-            // 
-            this.clearDatabaseToolStripMenuItem.Name = "clearDatabaseToolStripMenuItem";
-            this.clearDatabaseToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.clearDatabaseToolStripMenuItem.Text = "Clear Database";
-            // 
             // openFileDialogCanvas
             // 
             this.openFileDialogCanvas.DefaultExt = "ser";
             this.openFileDialogCanvas.Filter = "Serialized files|*.ser";
+            // 
+            // timerDrawing
+            // 
+            this.timerDrawing.Interval = 300;
             // 
             // Form1
             // 
@@ -486,7 +493,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(1782, 961);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.groupBoxSelfGeneratingDesigns);
             this.Controls.Add(this.buttonExit);
             this.Controls.Add(this.groupBoxDrawingSettings);
             this.Controls.Add(this.groupBoxQuickSettings);
@@ -508,7 +515,7 @@
             this.groupBoxDrawingSettings.ResumeLayout(false);
             this.groupBoxDrawingSettings.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarPenSize)).EndInit();
-            this.groupBox1.ResumeLayout(false);
+            this.groupBoxSelfGeneratingDesigns.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -536,7 +543,7 @@
         private System.Windows.Forms.Label labelPenSize;
         private System.Windows.Forms.TrackBar trackBarPenSize;
         private System.Windows.Forms.Button buttonRectangle;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox groupBoxSelfGeneratingDesigns;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button buttonCube;
         private System.Windows.Forms.Button buttonHouse;
@@ -555,6 +562,7 @@
         private System.Windows.Forms.ToolStripMenuItem seeItemsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem clearDatabaseToolStripMenuItem;
         private System.Windows.Forms.OpenFileDialog openFileDialogCanvas;
+        private System.Windows.Forms.Timer timerDrawing;
     }
 }
 

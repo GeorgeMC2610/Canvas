@@ -26,8 +26,9 @@ namespace csharp_vathmologoumeni_2
 
         public void SaveCanvas(string path)
         {
-            Bitmap picture = new Bitmap(panel.Width, panel.Height);
+            Bitmap picture = new Bitmap(panel.Width, panel.Height, graphics);
             panel.DrawToBitmap(picture, new Rectangle(0, 0, panel.Width, panel.Height));
+            graphics = panel.CreateGraphics();
 
             picture.Save(path, ImageFormat.MemoryBmp);
             picture.Dispose();

@@ -183,6 +183,16 @@ namespace csharp_vathmologoumeni_2
            
         }
 
+        private void SelfGeneratingDesigns_Click(object sender, EventArgs e)
+        {
+            //αν ο χώρος που θα ζωγραφίσει το πρόγραμμα είναι πολύ μικρός, τότε δεν μπαίνουμε σε αυτήν την διαδικασία. Δείχνουμε ανάλογο μήνυμα στον χρήστη
+            if (panel1.Width < 500 || panel1.Height < 400)
+            {
+                MessageBox.Show("The panel is not big enough to draw. Resize the panel, so it has a bigger capacity and then try again", "ERROR: Panel is too small", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }   
+        }
+
         private void panel1_MouseUp(object sender, MouseEventArgs e)
         {
             //καθε φορά που ο χρήστης σταματάει να πατάει το ποντίκι, κάνουμε false την canDraw, ώστε να μην συνεχίζει να ζωγραφίζει
