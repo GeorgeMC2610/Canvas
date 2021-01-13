@@ -169,15 +169,6 @@ namespace csharp_vathmologoumeni_2
             }
         }
 
-        private void saveDrawingToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            if (saveFileDialogCanvas.ShowDialog() == DialogResult.Cancel)
-                return;
-
-            Canvas c = new Canvas(panel1, graphics);
-            c.SaveCanvas(saveFileDialogCanvas.FileName);
-        }
-
         private void loadDrawingToolStripMenuItem_Click(object sender, EventArgs e)
         {
            
@@ -190,7 +181,13 @@ namespace csharp_vathmologoumeni_2
             {
                 MessageBox.Show("The panel is not big enough to draw. Resize the panel, so it has a bigger capacity and then try again", "ERROR: Panel is too small", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
-            }   
+            }
+
+            int relative_x = panel1.Width / 2;
+            int relative_y = panel1.Height / 2;
+            int modifier = 2 * panel1.Width / panel1.Height;
+
+            graphics.DrawLine(pen, relative_x, relative_y, relative_x, relative_y - (10*modifier));
         }
 
         private void panel1_MouseUp(object sender, MouseEventArgs e)

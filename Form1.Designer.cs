@@ -34,7 +34,6 @@
             this.shapes = new csharp_vathmologoumeni_2.Shapes();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.saveDrawingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.loadDrawingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.manageDatabaseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.seeItemsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -123,19 +122,11 @@
             // fileToolStripMenuItem1
             // 
             this.fileToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.saveDrawingToolStripMenuItem,
             this.loadDrawingToolStripMenuItem,
             this.manageDatabaseToolStripMenuItem});
             this.fileToolStripMenuItem1.Name = "fileToolStripMenuItem1";
             this.fileToolStripMenuItem1.Size = new System.Drawing.Size(37, 20);
             this.fileToolStripMenuItem1.Text = "File";
-            // 
-            // saveDrawingToolStripMenuItem
-            // 
-            this.saveDrawingToolStripMenuItem.Name = "saveDrawingToolStripMenuItem";
-            this.saveDrawingToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
-            this.saveDrawingToolStripMenuItem.Text = "Save Drawing As Jpeg";
-            this.saveDrawingToolStripMenuItem.Click += new System.EventHandler(this.saveDrawingToolStripMenuItem_Click);
             // 
             // loadDrawingToolStripMenuItem
             // 
@@ -476,7 +467,7 @@
             // saveFileDialogCanvas
             // 
             this.saveFileDialogCanvas.DefaultExt = "jpg";
-            this.saveFileDialogCanvas.Filter = "BMP Files|*.bmp|JPG Files|*.jpg|PNG Files|*.png";
+            this.saveFileDialogCanvas.Filter = "SER Files|*.ser";
             // 
             // openFileDialogCanvas
             // 
@@ -556,7 +547,6 @@
         private System.Windows.Forms.ToolStripMenuItem forPenToolStripMenuItem;
         private System.Windows.Forms.SaveFileDialog saveFileDialogCanvas;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem saveDrawingToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem loadDrawingToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem manageDatabaseToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem seeItemsToolStripMenuItem;
