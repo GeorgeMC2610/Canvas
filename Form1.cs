@@ -175,7 +175,7 @@ namespace csharp_vathmologoumeni_2
             graphics = panel1.CreateGraphics();
             int centreX = panel1.Width / 2;
             int centreY = panel1.Height / 2;
-            int multiplier = centreX - centreY;
+            int multiplier = 70;
             int halfX, halfY;
 
             switch (houseTimer)
@@ -184,28 +184,30 @@ namespace csharp_vathmologoumeni_2
                     graphics.DrawLine(pen, centreX, centreY, centreX, centreY + multiplier);
                     break;
                 case 2:
-                    graphics.DrawLine(pen, centreX, centreY, centreX + centreX - multiplier, centreY);
+                    graphics.DrawLine(pen, centreX, centreY, centreX + (int)(multiplier *1.5), centreY);
                     break;
                 case 3:
-                    graphics.DrawLine(pen, centreX + centreX - multiplier, centreY, centreX + centreX - multiplier, centreY + multiplier);
+                    graphics.DrawLine(pen, centreX + (int)(multiplier * 1.5), centreY, centreX + (int)(multiplier * 1.5), centreY + multiplier);
                     break;
                 case 4:
-                    graphics.DrawLine(pen, centreX, centreY + multiplier, centreX + centreX - multiplier, centreY + multiplier);
+                    graphics.DrawLine(pen, centreX, centreY + multiplier, centreX + (int)(multiplier *1.5), centreY + multiplier);
                     break;
                 case 5:
-                    halfX = (centreX + centreX + centreX - multiplier) / 2;
-                    halfY = (int)(centreY - halfX * 0.428) * 7;
+                    halfX = (centreX + (int)(centreX + multiplier * 1.5)) / 2;
+                    halfY = (int)((int)(centreY - halfX * 0.428) * 3.5);
                     graphics.DrawLine(pen, centreX, centreY, halfX, halfY);
                     break;
                 case 6:
-                    halfX = (centreX + centreX + centreX - multiplier) / 2;
-                    halfY = (int)(centreY - halfX * 0.428) * 7;
-                    graphics.DrawLine(pen, centreX + centreX - multiplier, centreY, halfX, halfY);
+                    halfX = (centreX + (int)(centreX + multiplier * 1.5)) / 2;
+                    halfY = (int)((int)(centreY - halfX * 0.428) * 3.5);
+                    graphics.DrawLine(pen, centreX + (int)(multiplier * 1.5), centreY, halfX, halfY);
                     break;
                 default:
                     timerHouse.Enabled = false;
                     houseTimer = 0;
                     ButtonHandling(true);
+                    command = new OleDbCommand("INSERT INTO Shapes (Type, Date_Created, Time_Created, Color, Pen_Size) VALUES ('House Template', '" + DateTime.Today.ToShortDateString() + "', '" + DateTime.Now.ToShortTimeString() + "', '" + colorDialog1.Color.ToString() + "', '" + trackBarPenSize.Value.ToString() + "')", connection);
+                    command.ExecuteNonQuery();
                     break;
             }
 
@@ -246,7 +248,7 @@ namespace csharp_vathmologoumeni_2
                 case 6:
                     Pen eraser = new Pen(panel1.BackColor, trackBarPenSize.Value * 4);
                     graphics.DrawLine(eraser, e.X, e.Y, dx, dy);
-                    dx = e.X;
+                    dx = e.X; 
                     dy = e.Y;
                     break;
             }
