@@ -176,11 +176,11 @@ namespace csharp_vathmologoumeni_2
             int centreX = panel1.Width / 2;
             int centreY = panel1.Height / 2;
             int multiplier = centreX - centreY;
+            int halfX, halfY;
 
             switch (houseTimer)
             {
                 case 1:
-                    Console.WriteLine(multiplier);
                     graphics.DrawLine(pen, centreX, centreY, centreX, centreY + multiplier);
                     break;
                 case 2:
@@ -191,6 +191,14 @@ namespace csharp_vathmologoumeni_2
                     break;
                 case 4:
                     graphics.DrawLine(pen, centreX, centreY + multiplier, centreX + centreX - multiplier, centreY + multiplier);
+                    break;
+                case 5:
+                    graphics.DrawLine(pen, centreX, centreY, centreX + multiplier, centreY - multiplier);
+                    break;
+                case 6:
+                    halfX = (centreX + (centreX + centreX - multiplier)) / 2;
+                    halfY = (centreY + (centreY + multiplier)) / 2;
+                    graphics.DrawLine(pen, centreX + centreX - multiplier, centreY + multiplier, halfX, halfY);
                     break;
                 default:
                     timerHouse.Enabled = false;
