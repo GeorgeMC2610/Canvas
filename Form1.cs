@@ -425,6 +425,17 @@ namespace csharp_vathmologoumeni_2
             }
         }
 
+        private void SelectColorToolStrip_Click(object sender, EventArgs e)
+        {
+            ToolStripMenuItem clickedItem = (ToolStripMenuItem)sender;
+
+            //όταν ο χρήστης θέλει να αλλάξει τα χρώματα μέσω του menustrip, τότε απλά πατάμε τα αντίστοιχα κουμπιά
+            if (clickedItem == forBackgroundToolStripMenuItem)
+                buttonSelectBackgroundColour.PerformClick();
+            else
+                buttonPenColour.PerformClick();
+        }
+
         private void panel1_MouseUp(object sender, MouseEventArgs e)
         {
             //καθε φορά που ο χρήστης σταματάει να πατάει το ποντίκι, κάνουμε false την canDraw, ώστε να μην συνεχίζει να ζωγραφίζει
