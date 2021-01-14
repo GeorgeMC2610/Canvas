@@ -428,6 +428,15 @@ namespace csharp_vathmologoumeni_2
                 Hide();
                 new Form2().Show();
             }
+            //καθάρισε το table άμα αυτή είναι η βούληση του χρήστη
+            else
+            {
+                if (MessageBox.Show("Are you sure you want to CLEAR and DELETE EVERYTHING from the database?\n\nBefore you take any action, be sure about your decision.", "Delete Everything?", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.No)
+                    return;
+
+                command = new OleDbCommand("DELETE * FROM Shapes", connection);
+                command.ExecuteNonQuery();
+            }
         }
 
         private void SelectColorToolStrip_Click(object sender, EventArgs e)
