@@ -152,6 +152,7 @@ namespace csharp_vathmologoumeni_2
                     timerCube.Enabled = true;
                     break;
                 case "Mail":
+                    mailTimer = 1;
                     timerMail.Enabled = true;
                     break;
                 case "Stickman":
@@ -227,10 +228,12 @@ namespace csharp_vathmologoumeni_2
         int cubeTimer = 1;
         private void timerCube_Tick(object sender, EventArgs e)
         {
+            //φτιάχνουμε τα γραφικά
             graphics = panel1.CreateGraphics();
             int X = (panel1.Width / 2) - 10;
             int Y = (panel1.Height / 2) - 10;
 
+            //και ύστερα (με σταθερούς συντελεστές) φτιάχνουμε διαδοχικά τον κύβο.
             switch (cubeTimer)
             {
                 case 1:
@@ -279,6 +282,46 @@ namespace csharp_vathmologoumeni_2
             }
 
             cubeTimer++;
+        }
+
+        int mailTimer = 1;
+        private void timerMail_Tick(object sender, EventArgs e)
+        {
+            //φτιάχνουμε τα γραφικά
+            graphics = panel1.CreateGraphics();
+            int X = (panel1.Width / 2) - 10;
+            int Y = (panel1.Height / 2) - 10;
+
+            switch (mailTimer)
+            {
+                case 1:
+                    graphics.DrawLine(pen, X, Y, X, Y + 128);
+                    break;
+                case 2:
+                    graphics.DrawLine(pen, X, Y + 128, X + 256, Y + 128);
+                    break;
+                case 3:
+                    graphics.DrawLine(pen, X + 256, Y + 128, X + 256, Y);
+                    break;
+                case 4:
+                    graphics.DrawLine(pen, X + 256, Y, X, Y);
+                    break;
+                case 5:
+                    graphics.DrawLine(pen, X, Y, X + 128, Y + 48);
+                    break;
+                case 6:
+                    graphics.DrawLine(pen, X + 256, Y, X + 128, Y + 48);
+                    break;
+                default:
+                    timerMail.Enabled = false;
+                    mailTimer = 0;
+                    ButtonHandling(true);
+                    command = new OleDbCommand("INSERT INTO Shapes (Type, Date_Created, Time_Created, Color, Pen_Size) VALUES ('Mail Template', '" + DateTime.Today.ToShortDateString() + "', '" + DateTime.Now.ToShortTimeString() + "', '" + colorDialog1.Color.ToString() + "', '" + trackBarPenSize.Value.ToString() + "')", connection);
+                    command.ExecuteNonQuery();
+                    break;
+            }
+
+            mailTimer++;
         }
 
 

@@ -514,6 +514,7 @@
             // timerMail
             // 
             this.timerMail.Interval = 300;
+            this.timerMail.Tick += new System.EventHandler(this.timerMail_Tick);
             // 
             // timerStickman
             // 
