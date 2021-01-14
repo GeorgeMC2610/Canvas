@@ -37,6 +37,12 @@
             this.selectColourToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.forBackgroundToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.forPenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.selectBackgroundImageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.selectBackgroundImageHandlingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripComboBoxHandling = new System.Windows.Forms.ToolStripComboBox();
+            this.manageDatabaseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.viewItemsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.clearDatabaseTableToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.buttonFreestyleDraw = new System.Windows.Forms.Button();
             this.buttonLineSegment = new System.Windows.Forms.Button();
@@ -63,12 +69,6 @@
             this.saveFileDialogCanvas = new System.Windows.Forms.SaveFileDialog();
             this.openFileDialogCanvas = new System.Windows.Forms.OpenFileDialog();
             this.timerHouse = new System.Windows.Forms.Timer(this.components);
-            this.selectBackgroundImageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.selectBackgroundImageHandlingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripComboBoxHandling = new System.Windows.Forms.ToolStripComboBox();
-            this.manageDatabaseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.viewItemsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.clearDatabaseTableToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.timerCube = new System.Windows.Forms.Timer(this.components);
             this.timerMail = new System.Windows.Forms.Timer(this.components);
             this.timerStickman = new System.Windows.Forms.Timer(this.components);
@@ -145,14 +145,68 @@
             // forBackgroundToolStripMenuItem
             // 
             this.forBackgroundToolStripMenuItem.Name = "forBackgroundToolStripMenuItem";
-            this.forBackgroundToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.forBackgroundToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
             this.forBackgroundToolStripMenuItem.Text = "For Background";
             // 
             // forPenToolStripMenuItem
             // 
             this.forPenToolStripMenuItem.Name = "forPenToolStripMenuItem";
-            this.forPenToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.forPenToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
             this.forPenToolStripMenuItem.Text = "For Pen";
+            // 
+            // selectBackgroundImageToolStripMenuItem
+            // 
+            this.selectBackgroundImageToolStripMenuItem.Name = "selectBackgroundImageToolStripMenuItem";
+            this.selectBackgroundImageToolStripMenuItem.Size = new System.Drawing.Size(260, 22);
+            this.selectBackgroundImageToolStripMenuItem.Text = "Select Background Image...";
+            // 
+            // selectBackgroundImageHandlingToolStripMenuItem
+            // 
+            this.selectBackgroundImageHandlingToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripComboBoxHandling});
+            this.selectBackgroundImageHandlingToolStripMenuItem.Name = "selectBackgroundImageHandlingToolStripMenuItem";
+            this.selectBackgroundImageHandlingToolStripMenuItem.Size = new System.Drawing.Size(260, 22);
+            this.selectBackgroundImageHandlingToolStripMenuItem.Text = "Select Background Image Handling";
+            // 
+            // toolStripComboBoxHandling
+            // 
+            this.toolStripComboBoxHandling.AutoCompleteCustomSource.AddRange(new string[] {
+            "None",
+            "Tile",
+            "Center",
+            "Strech",
+            "Zoom"});
+            this.toolStripComboBoxHandling.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.toolStripComboBoxHandling.Items.AddRange(new object[] {
+            "None",
+            "Tile",
+            "Center",
+            "Strech",
+            "Zoom"});
+            this.toolStripComboBoxHandling.MergeAction = System.Windows.Forms.MergeAction.MatchOnly;
+            this.toolStripComboBoxHandling.Name = "toolStripComboBoxHandling";
+            this.toolStripComboBoxHandling.Size = new System.Drawing.Size(121, 23);
+            // 
+            // manageDatabaseToolStripMenuItem
+            // 
+            this.manageDatabaseToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.viewItemsToolStripMenuItem,
+            this.clearDatabaseTableToolStripMenuItem});
+            this.manageDatabaseToolStripMenuItem.Name = "manageDatabaseToolStripMenuItem";
+            this.manageDatabaseToolStripMenuItem.Size = new System.Drawing.Size(260, 22);
+            this.manageDatabaseToolStripMenuItem.Text = "Manage Database";
+            // 
+            // viewItemsToolStripMenuItem
+            // 
+            this.viewItemsToolStripMenuItem.Name = "viewItemsToolStripMenuItem";
+            this.viewItemsToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
+            this.viewItemsToolStripMenuItem.Text = "View Items";
+            // 
+            // clearDatabaseTableToolStripMenuItem
+            // 
+            this.clearDatabaseTableToolStripMenuItem.Name = "clearDatabaseTableToolStripMenuItem";
+            this.clearDatabaseTableToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
+            this.clearDatabaseTableToolStripMenuItem.Text = "Clear Database Table";
             // 
             // helpToolStripMenuItem
             // 
@@ -450,60 +504,7 @@
             // timerHouse
             // 
             this.timerHouse.Interval = 300;
-            // 
-            // selectBackgroundImageToolStripMenuItem
-            // 
-            this.selectBackgroundImageToolStripMenuItem.Name = "selectBackgroundImageToolStripMenuItem";
-            this.selectBackgroundImageToolStripMenuItem.Size = new System.Drawing.Size(260, 22);
-            this.selectBackgroundImageToolStripMenuItem.Text = "Select Background Image...";
-            // 
-            // selectBackgroundImageHandlingToolStripMenuItem
-            // 
-            this.selectBackgroundImageHandlingToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripComboBoxHandling});
-            this.selectBackgroundImageHandlingToolStripMenuItem.Name = "selectBackgroundImageHandlingToolStripMenuItem";
-            this.selectBackgroundImageHandlingToolStripMenuItem.Size = new System.Drawing.Size(260, 22);
-            this.selectBackgroundImageHandlingToolStripMenuItem.Text = "Select Background Image Handling";
-            // 
-            // toolStripComboBoxHandling
-            // 
-            this.toolStripComboBoxHandling.AutoCompleteCustomSource.AddRange(new string[] {
-            "None",
-            "Tile",
-            "Center",
-            "Strech",
-            "Zoom"});
-            this.toolStripComboBoxHandling.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.toolStripComboBoxHandling.Items.AddRange(new object[] {
-            "None",
-            "Tile",
-            "Center",
-            "Strech",
-            "Zoom"});
-            this.toolStripComboBoxHandling.MergeAction = System.Windows.Forms.MergeAction.MatchOnly;
-            this.toolStripComboBoxHandling.Name = "toolStripComboBoxHandling";
-            this.toolStripComboBoxHandling.Size = new System.Drawing.Size(121, 23);
-            // 
-            // manageDatabaseToolStripMenuItem
-            // 
-            this.manageDatabaseToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.viewItemsToolStripMenuItem,
-            this.clearDatabaseTableToolStripMenuItem});
-            this.manageDatabaseToolStripMenuItem.Name = "manageDatabaseToolStripMenuItem";
-            this.manageDatabaseToolStripMenuItem.Size = new System.Drawing.Size(260, 22);
-            this.manageDatabaseToolStripMenuItem.Text = "Manage Database";
-            // 
-            // viewItemsToolStripMenuItem
-            // 
-            this.viewItemsToolStripMenuItem.Name = "viewItemsToolStripMenuItem";
-            this.viewItemsToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
-            this.viewItemsToolStripMenuItem.Text = "View Items";
-            // 
-            // clearDatabaseTableToolStripMenuItem
-            // 
-            this.clearDatabaseTableToolStripMenuItem.Name = "clearDatabaseTableToolStripMenuItem";
-            this.clearDatabaseTableToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
-            this.clearDatabaseTableToolStripMenuItem.Text = "Clear Database Table";
+            this.timerHouse.Tick += new System.EventHandler(this.timerHouse_Tick);
             // 
             // timerCube
             // 

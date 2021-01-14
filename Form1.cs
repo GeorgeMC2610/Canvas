@@ -136,20 +136,22 @@ namespace csharp_vathmologoumeni_2
                 MessageBox.Show("The panel is not big enough to draw. Resize the panel, so it has a bigger capacity and then try again", "ERROR: Panel is too small", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+            graphics.Dispose();
 
             Button pressedbutton = (Button)sender;
-            switch (pressedbutton.Tag)
+            switch (pressedbutton.Text)
             {
-                case 1:
+                case "House":
+                    houseTimer = 1;
                     timerHouse.Enabled = true;
                     break;
-                case 2:
+                case "Cube":
                     timerCube.Enabled = true;
                     break;
-                case 3:
+                case "Mail":
                     timerMail.Enabled = true;
                     break;
-                case 4:
+                case "Stickman":
                     timerStickman.Enabled = true;
                     break;
             }
@@ -163,6 +165,33 @@ namespace csharp_vathmologoumeni_2
             {
                 c.Enabled = EnableOrDisable;
             }
+        }
+
+        int houseTimer = 1;
+        private void timerHouse_Tick(object sender, EventArgs e)
+        {
+            graphics = panel1.CreateGraphics();
+            int centreX = panel1.Width / 2;
+            int centreY = panel1.Height / 2;
+            int multiplier = centreX - centreY;
+
+            switch (houseTimer)
+            {
+                case 1:
+                    Console.WriteLine(multiplier);
+                    graphics.DrawLine(pen, centreX, centreY, centreX, centreY + multiplier);
+                    break;
+                case 2:
+
+                    break;
+                default:
+                    timerHouse.Enabled = false;
+                    houseTimer = 0;
+                    ButtonHandling(true);
+                    break;
+            }
+
+            houseTimer++;
         }
 
 
