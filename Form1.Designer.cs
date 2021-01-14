@@ -509,6 +509,7 @@
             // timerCube
             // 
             this.timerCube.Interval = 300;
+            this.timerCube.Tick += new System.EventHandler(this.timerCube_Tick);
             // 
             // timerMail
             // 

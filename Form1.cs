@@ -122,9 +122,11 @@ namespace csharp_vathmologoumeni_2
 
         private void buttonEraseEverything_Click(object sender, EventArgs e)
         {
+            //αν ο χρήστης θέλει να σβήσει ό,τι έχει ο καμβάς
             if (MessageBox.Show("Are you sure you want to clear the canvas? Effects cannot be reverted.", "Clear Canvas", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.No)
                 return;
 
+            //απλώς γεμίζουμε το background με το χρώμα που έχει επιλέξει ο χρήστης.
             graphics.Clear(panel1.BackColor);
         }
 
@@ -137,6 +139,7 @@ namespace csharp_vathmologoumeni_2
                 return;
             }
 
+            //αλλιώς κοιτάμε τι κουμπί πατήθηκε
             Button pressedbutton = (Button)sender;
             switch (pressedbutton.Text)
             {
@@ -145,6 +148,7 @@ namespace csharp_vathmologoumeni_2
                     timerHouse.Enabled = true;
                     break;
                 case "Cube":
+                    cubeTimer = 1;
                     timerCube.Enabled = true;
                     break;
                 case "Mail":
@@ -155,9 +159,11 @@ namespace csharp_vathmologoumeni_2
                     break;
             }
 
+            //κι όσο σχεδιάζεται η ζωγραφιά, απενεργοποιούμε τα κοντρόλς
             ButtonHandling(false);
         }
 
+        //μία συνάρτηση που (απ)ενεργοποιεί τα κοντρόλς της φόρμας, ανάλογα με την βούλησή μας.
         private void ButtonHandling(bool EnableOrDisable)
         {
             foreach (Control c in this.Controls)
@@ -172,12 +178,15 @@ namespace csharp_vathmologoumeni_2
         int houseTimer = 1;
         private void timerHouse_Tick(object sender, EventArgs e)
         {
+            //φτιάχνουμε όλους τους υπολογισμούς ώστε να βγει το σπίτι
+            //TΙΠ: ΤΟ ΣΠΙΤΙ ΔΟΥΛΕΥΕΙ ΚΑΛΥΤΕΡΑ, ΟΤΑΝ ΔΕΝ ΕΧΕΙ ΔΙΑΦΟΡΟΠΟΙΗΘΕΙ ΤΟ ΜΕΓΕΘΟΣ ΤΟΥ ΣΠΙΤΙΟΥ.
             graphics = panel1.CreateGraphics();
             int centreX = panel1.Width / 2;
             int centreY = panel1.Height / 2;
             int multiplier = 70;
             int halfX, halfY;
 
+            //και κάθε φορά που ανεβαίνει ο μετρητής, σχεδιάζουμε κλιμακωτά το σπίτι.
             switch (houseTimer)
             {
                 case 1:
@@ -211,7 +220,53 @@ namespace csharp_vathmologoumeni_2
                     break;
             }
 
+            //μετά από κάθε επανάληψη προσθέτουμε τον μετρητή, ώστε να πάμε στο επόμενο σχέδιο.
             houseTimer++;
+        }
+
+        int cubeTimer = 1;
+        private void timerCube_Tick(object sender, EventArgs e)
+        {
+            graphics = panel1.CreateGraphics();
+            int X = (panel1.Width / 2) - 10;
+            int Y = (panel1.Height / 2) - 10;
+
+            switch (cubeTimer)
+            {
+                case 1:
+                    graphics.DrawLine(pen, X, Y, X, Y + 128);
+                    break;
+                case 2:
+                    graphics.DrawLine(pen, X, Y + 128, X + 128, Y + 128);
+                    break;
+                case 3:
+                    graphics.DrawLine(pen, X + 128, Y + 128, X + 128, Y);
+                    break;
+                case 4:
+                    graphics.DrawLine(pen, X + 128, Y, X, Y);
+                    break;
+                case 5:
+                    graphics.DrawLine(pen, X + 64, Y - 64, X + 192, Y - 64);
+                    break;
+                case 6:
+                    graphics.DrawLine(pen, X + 192, Y - 64, X + 192, Y + 64);
+                    break;
+                case 7:
+                    graphics.DrawLine(pen, X + 192, Y + 64, X + 64, Y + 64);
+                    break;
+                case 8:
+                    graphics.DrawLine(pen, X + 64, Y + 64, X + 64, Y - 64);
+                    break;
+                default:
+                    timerCube.Enabled = false;
+                    cubeTimer = 0;
+                    ButtonHandling(true);
+                    command = new OleDbCommand("INSERT INTO Shapes (Type, Date_Created, Time_Created, Color, Pen_Size) VALUES ('Cube Template', '" + DateTime.Today.ToShortDateString() + "', '" + DateTime.Now.ToShortTimeString() + "', '" + colorDialog1.Color.ToString() + "', '" + trackBarPenSize.Value.ToString() + "')", connection);
+                    command.ExecuteNonQuery();
+                    break;
+            }
+
+            cubeTimer++;
         }
 
 
