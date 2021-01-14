@@ -131,6 +131,8 @@ namespace csharp_vathmologoumeni_2
 
             //απλώς γεμίζουμε το background με το χρώμα που έχει επιλέξει ο χρήστης.
             graphics.Clear(panel1.BackColor);
+            buttonSelectBackgroundColour.Enabled = true;
+            panel1.BackgroundImage = null;
         }
 
         private void SelfGeneratingDesigns_Click(object sender, EventArgs e)
@@ -434,6 +436,16 @@ namespace csharp_vathmologoumeni_2
                 buttonSelectBackgroundColour.PerformClick();
             else
                 buttonPenColour.PerformClick();
+        }
+
+        private void selectBackgroundImageToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (openFileDialogCanvas.ShowDialog() == DialogResult.Cancel)
+                return;
+
+            panel1.BackColor = Color.White;
+            buttonSelectBackgroundColour.Enabled = false;
+            panel1.BackgroundImage = Image.FromFile(openFileDialogCanvas.FileName);
         }
 
         private void panel1_MouseUp(object sender, MouseEventArgs e)

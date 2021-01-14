@@ -154,6 +154,7 @@
             this.selectBackgroundImageToolStripMenuItem.Name = "selectBackgroundImageToolStripMenuItem";
             this.selectBackgroundImageToolStripMenuItem.Size = new System.Drawing.Size(260, 22);
             this.selectBackgroundImageToolStripMenuItem.Text = "Select Background Image...";
+            this.selectBackgroundImageToolStripMenuItem.Click += new System.EventHandler(this.selectBackgroundImageToolStripMenuItem_Click);
             // 
             // selectBackgroundImageHandlingToolStripMenuItem
             // 
@@ -494,7 +495,7 @@
             // openFileDialogCanvas
             // 
             this.openFileDialogCanvas.DefaultExt = "ser";
-            this.openFileDialogCanvas.Filter = "Serialized files|*.ser";
+            this.openFileDialogCanvas.Filter = "JPEG Icons|*.jpg|BMP Icons|*.bmp|PNG Icons|*.png|TGA Icons|*.tga";
             // 
             // timerHouse
             // 
