@@ -136,7 +136,6 @@ namespace csharp_vathmologoumeni_2
                 MessageBox.Show("The panel is not big enough to draw. Resize the panel, so it has a bigger capacity and then try again", "ERROR: Panel is too small", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            graphics.Dispose();
 
             Button pressedbutton = (Button)sender;
             switch (pressedbutton.Text)
@@ -163,6 +162,9 @@ namespace csharp_vathmologoumeni_2
         {
             foreach (Control c in this.Controls)
             {
+                if (c.Name.Equals("panel1"))
+                    return;
+
                 c.Enabled = EnableOrDisable;
             }
         }
