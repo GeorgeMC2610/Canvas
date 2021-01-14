@@ -182,7 +182,10 @@ namespace csharp_vathmologoumeni_2
                     graphics.DrawLine(pen, centreX, centreY, centreX, centreY + multiplier);
                     break;
                 case 2:
-
+                    graphics.DrawLine(pen, centreX, centreY, centreX + centreX - multiplier, centreY);
+                    break;
+                case 3:
+                    graphics.DrawLine(pen, centreX + centreX - multiplier, centreY, centreX + centreX - multiplier, centreY + multiplier);
                     break;
                 default:
                     timerHouse.Enabled = false;
