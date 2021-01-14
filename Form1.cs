@@ -257,6 +257,18 @@ namespace csharp_vathmologoumeni_2
                 case 8:
                     graphics.DrawLine(pen, X + 64, Y + 64, X + 64, Y - 64);
                     break;
+                case 9:
+                    graphics.DrawLine(pen, X, Y, X + 64, Y - 64);
+                    break;
+                case 10:
+                    graphics.DrawLine(pen, X + 128, Y, X + 192, Y - 64);
+                    break;
+                case 11:
+                    graphics.DrawLine(pen, X + 128, Y + 128, X + 192, Y + 64);
+                    break;
+                case 12:
+                    graphics.DrawLine(pen, X, Y + 128, X + 64, Y + 64);
+                    break;
                 default:
                     timerCube.Enabled = false;
                     cubeTimer = 0;
