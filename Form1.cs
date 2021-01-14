@@ -28,6 +28,7 @@ namespace csharp_vathmologoumeni_2
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            //πρώτο-πρώτο πράγμα που κάνουμε με το άνοιγμα της φόρμας είναι το connection με τη βάση δεδομένων
             try
             {
                 string connString = "Provider=Microsoft.Jet.OLEDB.4.0;;Data Source=database1.mdb";
@@ -36,12 +37,11 @@ namespace csharp_vathmologoumeni_2
             }
             catch (Exception exc)
             {
+                //αν δεν γίνει επιτυχώς, δεν ανοίγουμε καν τη φόρμα.
                 MessageBox.Show("Couldn't open database. Exception error: " + exc.Message + ". \n\n Make sure the Database has EXACTLY the name 'database1.mdb', its path is inside the Debug folder and is saved as Access Database 2002-2003 format.", "Could Not Connect to Database", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Close();
                 return;
             }
-
-
            
             pen = new Pen(buttonPenColour.BackColor, trackBarPenSize.Value);
             graphics = panel1.CreateGraphics();
@@ -50,12 +50,15 @@ namespace csharp_vathmologoumeni_2
         //κουμπί για την αλλαγή του pen
         private void buttonPenColour_Click(object sender, EventArgs e)
         {
+            //κάθε φορά που αλλάζει ο χρήστης το χρώμα
             if (colorDialog1.ShowDialog() == DialogResult.Cancel)
                 return;
 
+            //δίνουμε το ίδιο χρώμα στο κουμπί που αντιστοιχεί στην αλλαγή του χρώματος
             buttonPenColour.BackColor = colorDialog1.Color;
             pen.Color                 = colorDialog1.Color;
 
+            //αν το χρώμα είναι πολύ σκούρο ή πολύ ανοιχτό, κάνουμε τα γράμματα του κουμπιού άσπρα ή μαύρα αντίστοιχα.
             if (buttonPenColour.BackColor.GetBrightness() > 0.45)
                 buttonPenColour.ForeColor = Color.Black;
             else
@@ -294,6 +297,7 @@ namespace csharp_vathmologoumeni_2
             int X = (panel1.Width / 2) - 10;
             int Y = (panel1.Height / 2) - 10;
 
+            //μετά φτιάχνουμε διαδοχικά το σχέδιο.
             switch (mailTimer)
             {
                 case 1:
@@ -323,6 +327,7 @@ namespace csharp_vathmologoumeni_2
                     break;
             }
 
+            //και αυξάνουμε κατά ένα τον μετρητή, ώστε να δώσουμε το εφέ της «επανάληψης»
             mailTimer++;
         }
 
@@ -334,6 +339,7 @@ namespace csharp_vathmologoumeni_2
             int X = (panel1.Width / 2) - 35;
             int Y = (panel1.Height / 2) - 35;
 
+            //μετά φτιάχνουμε διαδοχικά το σχέδιο.
             switch (stickManTimer)
             {
                 case 1:
@@ -352,6 +358,7 @@ namespace csharp_vathmologoumeni_2
                     graphics.DrawLine(pen, X, Y + 128, X + 64, Y + 192);
                     break;
                 case 6:
+                //μετά φτιάχνουμε το κεφάλι, ζωγραφίζοντας έναν κύκλο στην κορυφή του σημείου
                     Rectangle head = new Rectangle(X - 32, Y - 64, 64, 64);
                     graphics.DrawEllipse(pen, head);
                     break;
@@ -364,6 +371,7 @@ namespace csharp_vathmologoumeni_2
                     break;
             }
 
+            //και αυξάνουμε κατά ένα τον μετρητή, ώστε να δώσουμε το εφέ της «επανάληψης»
             stickManTimer++;
         }
 
