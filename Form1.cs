@@ -414,6 +414,17 @@ namespace csharp_vathmologoumeni_2
             }
         }
 
+        private void ManageDatabaseItems_Click(object sender, EventArgs e)
+        {
+            ToolStripMenuItem clickedItem = (ToolStripMenuItem)sender;
+
+            if (clickedItem == viewItemsToolStripMenuItem)
+            {
+                Hide();
+                new Form2().Show();
+            }
+        }
+
         private void panel1_MouseUp(object sender, MouseEventArgs e)
         {
             //καθε φορά που ο χρήστης σταματάει να πατάει το ποντίκι, κάνουμε false την canDraw, ώστε να μην συνεχίζει να ζωγραφίζει
@@ -483,6 +494,19 @@ namespace csharp_vathmologoumeni_2
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)
         {
             connection.Close();
+
+            int length = Application.OpenForms.Count;
+            for (int i = 0; i < length; i++)
+            {
+                try
+                {
+                    Application.OpenForms[i].Close();
+                }
+                catch (Exception ex)
+                {
+
+                }
+            }
         }
     }
 }

@@ -201,12 +201,14 @@
             this.viewItemsToolStripMenuItem.Name = "viewItemsToolStripMenuItem";
             this.viewItemsToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
             this.viewItemsToolStripMenuItem.Text = "View Items";
+            this.viewItemsToolStripMenuItem.Click += new System.EventHandler(this.ManageDatabaseItems_Click);
             // 
             // clearDatabaseTableToolStripMenuItem
             // 
             this.clearDatabaseTableToolStripMenuItem.Name = "clearDatabaseTableToolStripMenuItem";
             this.clearDatabaseTableToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
             this.clearDatabaseTableToolStripMenuItem.Text = "Clear Database Table";
+            this.clearDatabaseTableToolStripMenuItem.Click += new System.EventHandler(this.ManageDatabaseItems_Click);
             // 
             // helpToolStripMenuItem
             // 

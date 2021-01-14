@@ -32,5 +32,16 @@ namespace csharp_vathmologoumeni_2.Properties {
                 return ((string)(this["database1ConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=|DataDirectory|\\database1.mdb;Persis" +
+            "t Security Info=True")]
+        public string database1ConnectionString1 {
+            get {
+                return ((string)(this["database1ConnectionString1"]));
+            }
+        }
     }
 }

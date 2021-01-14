@@ -30,33 +30,26 @@ namespace csharp_vathmologoumeni_2
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form2));
             this.shapes = new csharp_vathmologoumeni_2.Shapes();
             this.shapesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.shapesTableAdapter = new csharp_vathmologoumeni_2.ShapesTableAdapters.ShapesTableAdapter();
             this.tableAdapterManager = new csharp_vathmologoumeni_2.ShapesTableAdapters.TableAdapterManager();
-            this.shapesBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
-            this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorMovePreviousItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorSeparator = new System.Windows.Forms.ToolStripSeparator();
-            this.bindingNavigatorPositionItem = new System.Windows.Forms.ToolStripTextBox();
-            this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
-            this.bindingNavigatorSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.bindingNavigatorMoveNextItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
-            this.shapesBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
+            this.button1 = new System.Windows.Forms.Button();
+            this.database1DataSet1 = new csharp_vathmologoumeni_2.database1DataSet1();
+            this.shapesBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.shapesTableAdapter1 = new csharp_vathmologoumeni_2.database1DataSet1TableAdapters.ShapesTableAdapter();
+            this.tableAdapterManager1 = new csharp_vathmologoumeni_2.database1DataSet1TableAdapters.TableAdapterManager();
             this.shapesDataGridView = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.button1 = new System.Windows.Forms.Button();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.shapes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.shapesBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.shapesBindingNavigator)).BeginInit();
-            this.shapesBindingNavigator.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.database1DataSet1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.shapesBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.shapesDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -80,119 +73,38 @@ namespace csharp_vathmologoumeni_2
             this.tableAdapterManager.ShapesTableAdapter = this.shapesTableAdapter;
             this.tableAdapterManager.UpdateOrder = csharp_vathmologoumeni_2.ShapesTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
-            // shapesBindingNavigator
+            // button1
             // 
-            this.shapesBindingNavigator.AddNewItem = null;
-            this.shapesBindingNavigator.BindingSource = this.shapesBindingSource;
-            this.shapesBindingNavigator.CountItem = this.bindingNavigatorCountItem;
-            this.shapesBindingNavigator.DeleteItem = this.bindingNavigatorDeleteItem;
-            this.shapesBindingNavigator.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.bindingNavigatorMoveFirstItem,
-            this.bindingNavigatorMovePreviousItem,
-            this.bindingNavigatorSeparator,
-            this.bindingNavigatorPositionItem,
-            this.bindingNavigatorCountItem,
-            this.bindingNavigatorSeparator1,
-            this.bindingNavigatorMoveNextItem,
-            this.bindingNavigatorMoveLastItem,
-            this.bindingNavigatorSeparator2,
-            this.bindingNavigatorDeleteItem,
-            this.shapesBindingNavigatorSaveItem});
-            this.shapesBindingNavigator.Location = new System.Drawing.Point(0, 0);
-            this.shapesBindingNavigator.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
-            this.shapesBindingNavigator.MoveLastItem = this.bindingNavigatorMoveLastItem;
-            this.shapesBindingNavigator.MoveNextItem = this.bindingNavigatorMoveNextItem;
-            this.shapesBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
-            this.shapesBindingNavigator.Name = "shapesBindingNavigator";
-            this.shapesBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
-            this.shapesBindingNavigator.Size = new System.Drawing.Size(1199, 25);
-            this.shapesBindingNavigator.TabIndex = 0;
-            this.shapesBindingNavigator.Text = "bindingNavigator1";
+            this.button1.BackColor = System.Drawing.Color.Maroon;
+            this.button1.Font = new System.Drawing.Font("Microsoft YaHei", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.Location = new System.Drawing.Point(12, 582);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(104, 39);
+            this.button1.TabIndex = 2;
+            this.button1.Text = "← Go Back";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // bindingNavigatorMoveFirstItem
+            // database1DataSet1
             // 
-            this.bindingNavigatorMoveFirstItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorMoveFirstItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveFirstItem.Image")));
-            this.bindingNavigatorMoveFirstItem.Name = "bindingNavigatorMoveFirstItem";
-            this.bindingNavigatorMoveFirstItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveFirstItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorMoveFirstItem.Text = "Move first";
+            this.database1DataSet1.DataSetName = "database1DataSet1";
+            this.database1DataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // bindingNavigatorMovePreviousItem
+            // shapesBindingSource1
             // 
-            this.bindingNavigatorMovePreviousItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorMovePreviousItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMovePreviousItem.Image")));
-            this.bindingNavigatorMovePreviousItem.Name = "bindingNavigatorMovePreviousItem";
-            this.bindingNavigatorMovePreviousItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorMovePreviousItem.Text = "Move previous";
+            this.shapesBindingSource1.DataMember = "Shapes";
+            this.shapesBindingSource1.DataSource = this.database1DataSet1;
             // 
-            // bindingNavigatorSeparator
+            // shapesTableAdapter1
             // 
-            this.bindingNavigatorSeparator.Name = "bindingNavigatorSeparator";
-            this.bindingNavigatorSeparator.Size = new System.Drawing.Size(6, 25);
+            this.shapesTableAdapter1.ClearBeforeFill = true;
             // 
-            // bindingNavigatorPositionItem
+            // tableAdapterManager1
             // 
-            this.bindingNavigatorPositionItem.AccessibleName = "Position";
-            this.bindingNavigatorPositionItem.AutoSize = false;
-            this.bindingNavigatorPositionItem.Name = "bindingNavigatorPositionItem";
-            this.bindingNavigatorPositionItem.Size = new System.Drawing.Size(50, 23);
-            this.bindingNavigatorPositionItem.Text = "0";
-            this.bindingNavigatorPositionItem.ToolTipText = "Current position";
-            // 
-            // bindingNavigatorCountItem
-            // 
-            this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
-            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(35, 22);
-            this.bindingNavigatorCountItem.Text = "of {0}";
-            this.bindingNavigatorCountItem.ToolTipText = "Total number of items";
-            // 
-            // bindingNavigatorSeparator1
-            // 
-            this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator";
-            this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 25);
-            // 
-            // bindingNavigatorMoveNextItem
-            // 
-            this.bindingNavigatorMoveNextItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorMoveNextItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveNextItem.Image")));
-            this.bindingNavigatorMoveNextItem.Name = "bindingNavigatorMoveNextItem";
-            this.bindingNavigatorMoveNextItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorMoveNextItem.Text = "Move next";
-            // 
-            // bindingNavigatorMoveLastItem
-            // 
-            this.bindingNavigatorMoveLastItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorMoveLastItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveLastItem.Image")));
-            this.bindingNavigatorMoveLastItem.Name = "bindingNavigatorMoveLastItem";
-            this.bindingNavigatorMoveLastItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorMoveLastItem.Text = "Move last";
-            // 
-            // bindingNavigatorSeparator2
-            // 
-            this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator";
-            this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 25);
-            // 
-            // bindingNavigatorDeleteItem
-            // 
-            this.bindingNavigatorDeleteItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem.Image")));
-            this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
-            this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorDeleteItem.Text = "Delete";
-            // 
-            // shapesBindingNavigatorSaveItem
-            // 
-            this.shapesBindingNavigatorSaveItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.shapesBindingNavigatorSaveItem.Image = ((System.Drawing.Image)(resources.GetObject("shapesBindingNavigatorSaveItem.Image")));
-            this.shapesBindingNavigatorSaveItem.Name = "shapesBindingNavigatorSaveItem";
-            this.shapesBindingNavigatorSaveItem.Size = new System.Drawing.Size(23, 22);
-            this.shapesBindingNavigatorSaveItem.Text = "Save Data";
-            this.shapesBindingNavigatorSaveItem.Click += new System.EventHandler(this.shapesBindingNavigatorSaveItem_Click);
+            this.tableAdapterManager1.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager1.ShapesTableAdapter = this.shapesTableAdapter1;
+            this.tableAdapterManager1.UpdateOrder = csharp_vathmologoumeni_2.database1DataSet1TableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
             // shapesDataGridView
             // 
@@ -204,12 +116,14 @@ namespace csharp_vathmologoumeni_2
             this.dataGridViewTextBoxColumn1,
             this.dataGridViewTextBoxColumn2,
             this.dataGridViewTextBoxColumn3,
-            this.dataGridViewTextBoxColumn4});
-            this.shapesDataGridView.DataSource = this.shapesBindingSource;
-            this.shapesDataGridView.Location = new System.Drawing.Point(12, 37);
+            this.dataGridViewTextBoxColumn4,
+            this.dataGridViewTextBoxColumn5,
+            this.dataGridViewTextBoxColumn6});
+            this.shapesDataGridView.DataSource = this.shapesBindingSource1;
+            this.shapesDataGridView.Location = new System.Drawing.Point(12, 12);
             this.shapesDataGridView.Name = "shapesDataGridView";
-            this.shapesDataGridView.Size = new System.Drawing.Size(1175, 531);
-            this.shapesDataGridView.TabIndex = 1;
+            this.shapesDataGridView.Size = new System.Drawing.Size(1175, 564);
+            this.shapesDataGridView.TabIndex = 2;
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -235,28 +149,26 @@ namespace csharp_vathmologoumeni_2
             this.dataGridViewTextBoxColumn4.HeaderText = "Time_Created";
             this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
             // 
-            // button1
+            // dataGridViewTextBoxColumn5
             // 
-            this.button1.BackColor = System.Drawing.Color.Maroon;
-            this.button1.Font = new System.Drawing.Font("Microsoft YaHei", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(12, 574);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(104, 39);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "← Go Back";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.dataGridViewTextBoxColumn5.DataPropertyName = "Color";
+            this.dataGridViewTextBoxColumn5.HeaderText = "Color";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            this.dataGridViewTextBoxColumn6.DataPropertyName = "Pen_Size";
+            this.dataGridViewTextBoxColumn6.HeaderText = "Pen_Size";
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
             // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightGreen;
-            this.ClientSize = new System.Drawing.Size(1199, 617);
-            this.Controls.Add(this.button1);
+            this.ClientSize = new System.Drawing.Size(1199, 633);
             this.Controls.Add(this.shapesDataGridView);
-            this.Controls.Add(this.shapesBindingNavigator);
+            this.Controls.Add(this.button1);
             this.Font = new System.Drawing.Font("Microsoft YaHei", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "Form2";
@@ -265,12 +177,10 @@ namespace csharp_vathmologoumeni_2
             this.Load += new System.EventHandler(this.Form2_Load);
             ((System.ComponentModel.ISupportInitialize)(this.shapes)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.shapesBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.shapesBindingNavigator)).EndInit();
-            this.shapesBindingNavigator.ResumeLayout(false);
-            this.shapesBindingNavigator.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.database1DataSet1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.shapesBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.shapesDataGridView)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -280,23 +190,17 @@ namespace csharp_vathmologoumeni_2
         private System.Windows.Forms.BindingSource shapesBindingSource;
         private ShapesTableAdapters.ShapesTableAdapter shapesTableAdapter;
         private ShapesTableAdapters.TableAdapterManager tableAdapterManager;
-        private System.Windows.Forms.BindingNavigator shapesBindingNavigator;
-        private System.Windows.Forms.ToolStripLabel bindingNavigatorCountItem;
-        private System.Windows.Forms.ToolStripButton bindingNavigatorDeleteItem;
-        private System.Windows.Forms.ToolStripButton bindingNavigatorMoveFirstItem;
-        private System.Windows.Forms.ToolStripButton bindingNavigatorMovePreviousItem;
-        private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator;
-        private System.Windows.Forms.ToolStripTextBox bindingNavigatorPositionItem;
-        private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator1;
-        private System.Windows.Forms.ToolStripButton bindingNavigatorMoveNextItem;
-        private System.Windows.Forms.ToolStripButton bindingNavigatorMoveLastItem;
-        private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator2;
-        private System.Windows.Forms.ToolStripButton shapesBindingNavigatorSaveItem;
+        private System.Windows.Forms.Button button1;
+        private database1DataSet1 database1DataSet1;
+        private System.Windows.Forms.BindingSource shapesBindingSource1;
+        private database1DataSet1TableAdapters.ShapesTableAdapter shapesTableAdapter1;
+        private database1DataSet1TableAdapters.TableAdapterManager tableAdapterManager1;
         private System.Windows.Forms.DataGridView shapesDataGridView;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
     }
 }
