@@ -519,6 +519,7 @@
             // timerStickman
             // 
             this.timerStickman.Interval = 300;
+            this.timerStickman.Tick += new System.EventHandler(this.timerStickman_Tick);
             // 
             // Form1
             // 

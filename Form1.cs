@@ -156,6 +156,7 @@ namespace csharp_vathmologoumeni_2
                     timerMail.Enabled = true;
                     break;
                 case "Stickman":
+                    stickManTimer = 1;
                     timerStickman.Enabled = true;
                     break;
             }
@@ -281,6 +282,7 @@ namespace csharp_vathmologoumeni_2
                     break;
             }
 
+            //αυξάνουμε το cube timer κατά ένα κάθε «επανάληψη»
             cubeTimer++;
         }
 
@@ -324,6 +326,46 @@ namespace csharp_vathmologoumeni_2
             mailTimer++;
         }
 
+        int stickManTimer = 1;
+        private void timerStickman_Tick(object sender, EventArgs e)
+        {
+            //φτιάχνουμε τα γραφικά
+            graphics = panel1.CreateGraphics();
+            int X = (panel1.Width / 2) - 35;
+            int Y = (panel1.Height / 2) - 35;
+
+            switch (stickManTimer)
+            {
+                case 1:
+                    graphics.DrawLine(pen, X, Y, X, Y + 128);
+                    break;
+                case 2:
+                    graphics.DrawLine(pen, X, Y, X + 64, Y + 64);
+                    break;
+                case 3:
+                    graphics.DrawLine(pen, X, Y, X - 64, Y + 64);
+                    break;
+                case 4:
+                    graphics.DrawLine(pen, X, Y + 128, X - 64, Y + 192);
+                    break;
+                case 5:
+                    graphics.DrawLine(pen, X, Y + 128, X + 64, Y + 192);
+                    break;
+                case 6:
+                    Rectangle head = new Rectangle(X - 32, Y - 64, 64, 64);
+                    graphics.DrawEllipse(pen, head);
+                    break;
+                default:
+                    timerStickman.Enabled = false;
+                    stickManTimer = 0;
+                    ButtonHandling(true);
+                    command = new OleDbCommand("INSERT INTO Shapes (Type, Date_Created, Time_Created, Color, Pen_Size) VALUES ('Stickman Template', '" + DateTime.Today.ToShortDateString() + "', '" + DateTime.Now.ToShortTimeString() + "', '" + colorDialog1.Color.ToString() + "', '" + trackBarPenSize.Value.ToString() + "')", connection);
+                    command.ExecuteNonQuery();
+                    break;
+            }
+
+            stickManTimer++;
+        }
 
         //αν το ποντίκι είναι πατημένο εντός του πάνελ, τότε ενεργοποιούμε την canDraw, ώστε να μπορεί να ζωγραφίσει ο χρήστης
         private void panel1_MouseDown(object sender, MouseEventArgs e)
