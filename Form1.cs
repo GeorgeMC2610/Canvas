@@ -45,6 +45,7 @@ namespace csharp_vathmologoumeni_2
            
             pen = new Pen(buttonPenColour.BackColor, trackBarPenSize.Value);
             graphics = panel1.CreateGraphics();
+            toolStripComboBoxHandling.SelectedIndex = 1;
         }
 
         //κουμπί για την αλλαγή του pen
@@ -131,6 +132,8 @@ namespace csharp_vathmologoumeni_2
 
             //απλώς γεμίζουμε το background με το χρώμα που έχει επιλέξει ο χρήστης.
             graphics.Clear(panel1.BackColor);
+
+            //ύστερα ενεργοποιούμε το κουμπί, αν ο χρήστης είχε επιλέξει εικόνα για background
             buttonSelectBackgroundColour.Enabled = true;
             panel1.BackgroundImage = null;
         }
@@ -446,6 +449,29 @@ namespace csharp_vathmologoumeni_2
             panel1.BackColor = Color.White;
             buttonSelectBackgroundColour.Enabled = false;
             panel1.BackgroundImage = Image.FromFile(openFileDialogCanvas.FileName);
+        }
+
+        private void BackGroundImageHandling_IndexChanged(object sender, EventArgs e)
+        {
+            //αλλάζουμε το Layout της εικόνας βάσει του combobox που έχει στο toolstrip item
+            switch (toolStripComboBoxHandling.SelectedIndex)
+            {
+                case 0:
+                    panel1.BackgroundImageLayout = ImageLayout.None;
+                    break;
+                case 1:
+                    panel1.BackgroundImageLayout = ImageLayout.Tile;
+                    break;
+                case 2:
+                    panel1.BackgroundImageLayout = ImageLayout.Center;
+                    break;
+                case 3:
+                    panel1.BackgroundImageLayout = ImageLayout.Stretch;
+                    break;
+                case 4:
+                    panel1.BackgroundImageLayout = ImageLayout.Zoom;
+                    break;
+            }
         }
 
         private void panel1_MouseUp(object sender, MouseEventArgs e)

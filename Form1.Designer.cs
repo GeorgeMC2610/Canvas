@@ -182,6 +182,7 @@
             this.toolStripComboBoxHandling.MergeAction = System.Windows.Forms.MergeAction.MatchOnly;
             this.toolStripComboBoxHandling.Name = "toolStripComboBoxHandling";
             this.toolStripComboBoxHandling.Size = new System.Drawing.Size(121, 23);
+            this.toolStripComboBoxHandling.SelectedIndexChanged += new System.EventHandler(this.BackGroundImageHandling_IndexChanged);
             // 
             // manageDatabaseToolStripMenuItem
             // 
