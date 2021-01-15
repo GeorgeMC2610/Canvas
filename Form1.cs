@@ -506,11 +506,10 @@ namespace csharp_vathmologoumeni_2
                     break;
                 case 3:
                     message = "Self-Generating designs are located in the bottom-left of the app. Those generate a design, based on their button names, by drawing intervally each line of the design. Each interval has a delay of 300ms.\n\n" +
-                        "";
+                        "Whenever you click on any of the designs, all controls will be locked until the design has been drawn. Most of the designs are controlled to appear, roughly, in the center-right of the canvas each time. " +
+                        "The colour and thickness of the design won't differ from the selected options.";
 
                     title = "Self-Generating Drawings";
-                    break;
-                case 4:
                     break;
             }
 

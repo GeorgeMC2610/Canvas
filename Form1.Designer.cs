@@ -79,7 +79,7 @@
             this.quickSettingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.drawingSettingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.selfGeneratingDesignsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolsToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.databaseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.shapesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.shapes)).BeginInit();
             this.menuStrip1.SuspendLayout();
@@ -226,7 +226,8 @@
             // 
             this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.aboutToolStripMenuItem,
-            this.buttonsNavigationToolStripMenuItem});
+            this.buttonsNavigationToolStripMenuItem,
+            this.databaseToolStripMenuItem});
             this.helpToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
             this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
@@ -566,8 +567,7 @@
             this.buttonsNavigationToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.quickSettingsToolStripMenuItem,
             this.drawingSettingsToolStripMenuItem,
-            this.selfGeneratingDesignsToolStripMenuItem,
-            this.toolsToolStripMenuItem1});
+            this.selfGeneratingDesignsToolStripMenuItem});
             this.buttonsNavigationToolStripMenuItem.Name = "buttonsNavigationToolStripMenuItem";
             this.buttonsNavigationToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.buttonsNavigationToolStripMenuItem.Text = "Buttons Navigation";
@@ -596,13 +596,11 @@
             this.selfGeneratingDesignsToolStripMenuItem.Text = "Self-Generating Designs";
             this.selfGeneratingDesignsToolStripMenuItem.Click += new System.EventHandler(this.Navigation_Click);
             // 
-            // toolsToolStripMenuItem1
+            // databaseToolStripMenuItem
             // 
-            this.toolsToolStripMenuItem1.Name = "toolsToolStripMenuItem1";
-            this.toolsToolStripMenuItem1.Size = new System.Drawing.Size(200, 22);
-            this.toolsToolStripMenuItem1.Tag = "4";
-            this.toolsToolStripMenuItem1.Text = "Tools Tab";
-            this.toolsToolStripMenuItem1.Click += new System.EventHandler(this.Navigation_Click);
+            this.databaseToolStripMenuItem.Name = "databaseToolStripMenuItem";
+            this.databaseToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.databaseToolStripMenuItem.Text = "Database";
             // 
             // Form1
             // 
@@ -690,7 +688,7 @@
         private System.Windows.Forms.ToolStripMenuItem quickSettingsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem drawingSettingsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem selfGeneratingDesignsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem toolsToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem databaseToolStripMenuItem;
     }
 }
 
