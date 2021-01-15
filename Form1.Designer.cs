@@ -75,6 +75,11 @@
             this.timerMail = new System.Windows.Forms.Timer(this.components);
             this.timerStickman = new System.Windows.Forms.Timer(this.components);
             this.shapesTableAdapter = new csharp_vathmologoumeni_2.ShapesTableAdapters.ShapesTableAdapter();
+            this.buttonsNavigationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.quickSettingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.drawingSettingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.selfGeneratingDesignsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolsToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.shapesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.shapes)).BeginInit();
             this.menuStrip1.SuspendLayout();
@@ -220,7 +225,8 @@
             // helpToolStripMenuItem
             // 
             this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.aboutToolStripMenuItem});
+            this.aboutToolStripMenuItem,
+            this.buttonsNavigationToolStripMenuItem});
             this.helpToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
             this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
@@ -555,6 +561,49 @@
             // 
             this.shapesTableAdapter.ClearBeforeFill = true;
             // 
+            // buttonsNavigationToolStripMenuItem
+            // 
+            this.buttonsNavigationToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.quickSettingsToolStripMenuItem,
+            this.drawingSettingsToolStripMenuItem,
+            this.selfGeneratingDesignsToolStripMenuItem,
+            this.toolsToolStripMenuItem1});
+            this.buttonsNavigationToolStripMenuItem.Name = "buttonsNavigationToolStripMenuItem";
+            this.buttonsNavigationToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.buttonsNavigationToolStripMenuItem.Text = "Buttons Navigation";
+            // 
+            // quickSettingsToolStripMenuItem
+            // 
+            this.quickSettingsToolStripMenuItem.Name = "quickSettingsToolStripMenuItem";
+            this.quickSettingsToolStripMenuItem.Size = new System.Drawing.Size(200, 22);
+            this.quickSettingsToolStripMenuItem.Tag = "1";
+            this.quickSettingsToolStripMenuItem.Text = "Quick Settings";
+            this.quickSettingsToolStripMenuItem.Click += new System.EventHandler(this.Navigation_Click);
+            // 
+            // drawingSettingsToolStripMenuItem
+            // 
+            this.drawingSettingsToolStripMenuItem.Name = "drawingSettingsToolStripMenuItem";
+            this.drawingSettingsToolStripMenuItem.Size = new System.Drawing.Size(200, 22);
+            this.drawingSettingsToolStripMenuItem.Tag = "2";
+            this.drawingSettingsToolStripMenuItem.Text = "Drawing Settings";
+            this.drawingSettingsToolStripMenuItem.Click += new System.EventHandler(this.Navigation_Click);
+            // 
+            // selfGeneratingDesignsToolStripMenuItem
+            // 
+            this.selfGeneratingDesignsToolStripMenuItem.Name = "selfGeneratingDesignsToolStripMenuItem";
+            this.selfGeneratingDesignsToolStripMenuItem.Size = new System.Drawing.Size(200, 22);
+            this.selfGeneratingDesignsToolStripMenuItem.Tag = "3";
+            this.selfGeneratingDesignsToolStripMenuItem.Text = "Self-Generating Designs";
+            this.selfGeneratingDesignsToolStripMenuItem.Click += new System.EventHandler(this.Navigation_Click);
+            // 
+            // toolsToolStripMenuItem1
+            // 
+            this.toolsToolStripMenuItem1.Name = "toolsToolStripMenuItem1";
+            this.toolsToolStripMenuItem1.Size = new System.Drawing.Size(200, 22);
+            this.toolsToolStripMenuItem1.Tag = "4";
+            this.toolsToolStripMenuItem1.Text = "Tools Tab";
+            this.toolsToolStripMenuItem1.Click += new System.EventHandler(this.Navigation_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -637,6 +686,11 @@
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem theAppToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem theCreatorOfThisAppToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem buttonsNavigationToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem quickSettingsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem drawingSettingsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem selfGeneratingDesignsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem toolsToolStripMenuItem1;
     }
 }
 

@@ -397,18 +397,13 @@ namespace csharp_vathmologoumeni_2
             if (!canDraw)
                 return;
 
+            //αυτές οι περιπτώσεις είναι οι μόνες που χρειάζονται αυτήν τη συνάρτηση. Δίνουν το εφέ της «ζωγραφικής».
             switch (QuickSettingsSelection)
             {
                 case 1:
                     graphics.DrawLine(pen, e.X, e.Y, dx, dy);
                     dx = e.X;
                     dy = e.Y;
-                    break;
-                case 2:
-                    break;
-                case 3:
-                    break;
-                case 4:
                     break;
                 case 6:
                     Pen eraser = new Pen(panel1.BackColor, trackBarPenSize.Value * 4);
@@ -484,8 +479,36 @@ namespace csharp_vathmologoumeni_2
                 {
                     MessageBox.Show("Something went wrong. EXCEPTION MESSAGE: " + ex.Message, "Error");
                 }
+            }  
+        }
+
+        private void Navigation_Click(object sender, EventArgs e)
+        {
+            ToolStripItem clickedItem = (ToolStripItem)sender;
+            int tag = int.Parse(clickedItem.Tag.ToString());
+            string title = "", message = "";
+
+            switch (tag)
+            {
+                case 1:
+                    message = "The Quick Settings group box, can be located in the top-left corner of the app. Whenever you select an option, it turns green and remains selected, until you select another option.\n\n" +
+                        "These options define the drawing mode, namely the method your mouse will use when you click and slide it in the canvas (panel). By default, none is selected. If you try to draw with no option selected, " +
+                        "you will be informed accordingly";
+
+                    title = "Quick Settings";
+                    break;
+                case 2:
+                    message = "";
+
+                    title = "Drawing Settings";
+                    break;
+                case 3:
+                    break;
+                case 4:
+                    break;
             }
-                
+
+            MessageBox.Show(message, title);
         }
 
         private void BackGroundImageHandling_IndexChanged(object sender, EventArgs e)
