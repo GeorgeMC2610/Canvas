@@ -498,11 +498,17 @@ namespace csharp_vathmologoumeni_2
                     title = "Quick Settings";
                     break;
                 case 2:
-                    message = "";
+                    message = "Drawing settings can be located roughly in the middle-left of the app. These affect mostly the canvas and your drawings." +
+                        "\n\nBEWARE: if you select another background colour, while having a drawing in the screen, the drawing will disappear." +
+                        "\n\nSlide the bar left and right to get 11 different values of brush thickness. Whenever you select a Background colour, the eraser will draw the same colour as the background colour. Similar stuff will happen if you press the Erase Everything button.";
 
                     title = "Drawing Settings";
                     break;
                 case 3:
+                    message = "Self-Generating designs are located in the bottom-left of the app. Those generate a design, based on their button names, by drawing intervally each line of the design. Each interval has a delay of 300ms.\n\n" +
+                        "";
+
+                    title = "Self-Generating Drawings";
                     break;
                 case 4:
                     break;
