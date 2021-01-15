@@ -30,6 +30,8 @@
         {
             this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.shapesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.shapes = new csharp_vathmologoumeni_2.Shapes();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.ToolsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.selectColourToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -42,6 +44,9 @@
             this.viewItemsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.clearDatabaseTableToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.theAppToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.theCreatorOfThisAppToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.buttonFreestyleDraw = new System.Windows.Forms.Button();
             this.buttonLineSegment = new System.Windows.Forms.Button();
             this.buttonEllipse = new System.Windows.Forms.Button();
@@ -69,19 +74,14 @@
             this.timerCube = new System.Windows.Forms.Timer(this.components);
             this.timerMail = new System.Windows.Forms.Timer(this.components);
             this.timerStickman = new System.Windows.Forms.Timer(this.components);
-            this.shapesBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.shapes = new csharp_vathmologoumeni_2.Shapes();
             this.shapesTableAdapter = new csharp_vathmologoumeni_2.ShapesTableAdapters.ShapesTableAdapter();
-            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.theCreatorOfThisAppToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.theAppToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            ((System.ComponentModel.ISupportInitialize)(this.shapesBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.shapes)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.groupBoxQuickSettings.SuspendLayout();
             this.groupBoxDrawingSettings.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarPenSize)).BeginInit();
             this.groupBoxSelfGeneratingDesigns.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.shapesBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.shapes)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -101,6 +101,16 @@
             this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
             this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseMove);
             this.panel1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseUp);
+            // 
+            // shapesBindingSource
+            // 
+            this.shapesBindingSource.DataMember = "Shapes";
+            this.shapesBindingSource.DataSource = this.shapes;
+            // 
+            // shapes
+            // 
+            this.shapes.DataSetName = "Shapes";
+            this.shapes.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // menuStrip1
             // 
@@ -138,14 +148,14 @@
             // forBackgroundToolStripMenuItem
             // 
             this.forBackgroundToolStripMenuItem.Name = "forBackgroundToolStripMenuItem";
-            this.forBackgroundToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.forBackgroundToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
             this.forBackgroundToolStripMenuItem.Text = "For Background";
             this.forBackgroundToolStripMenuItem.Click += new System.EventHandler(this.SelectColorToolStrip_Click);
             // 
             // forPenToolStripMenuItem
             // 
             this.forPenToolStripMenuItem.Name = "forPenToolStripMenuItem";
-            this.forPenToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.forPenToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
             this.forPenToolStripMenuItem.Text = "For Pen";
             this.forPenToolStripMenuItem.Click += new System.EventHandler(this.SelectColorToolStrip_Click);
             // 
@@ -215,6 +225,29 @@
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
             this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
             this.helpToolStripMenuItem.Text = "Help";
+            // 
+            // aboutToolStripMenuItem
+            // 
+            this.aboutToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.theAppToolStripMenuItem,
+            this.theCreatorOfThisAppToolStripMenuItem});
+            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.aboutToolStripMenuItem.Text = "About";
+            // 
+            // theAppToolStripMenuItem
+            // 
+            this.theAppToolStripMenuItem.Name = "theAppToolStripMenuItem";
+            this.theAppToolStripMenuItem.Size = new System.Drawing.Size(200, 22);
+            this.theAppToolStripMenuItem.Text = "This App";
+            this.theAppToolStripMenuItem.Click += new System.EventHandler(this.About_Click);
+            // 
+            // theCreatorOfThisAppToolStripMenuItem
+            // 
+            this.theCreatorOfThisAppToolStripMenuItem.Name = "theCreatorOfThisAppToolStripMenuItem";
+            this.theCreatorOfThisAppToolStripMenuItem.Size = new System.Drawing.Size(200, 22);
+            this.theCreatorOfThisAppToolStripMenuItem.Text = "The Creator Of This App";
+            this.theCreatorOfThisAppToolStripMenuItem.Click += new System.EventHandler(this.About_Click);
             // 
             // buttonFreestyleDraw
             // 
@@ -518,40 +551,9 @@
             this.timerStickman.Interval = 300;
             this.timerStickman.Tick += new System.EventHandler(this.timerStickman_Tick);
             // 
-            // shapesBindingSource
-            // 
-            this.shapesBindingSource.DataMember = "Shapes";
-            this.shapesBindingSource.DataSource = this.shapes;
-            // 
-            // shapes
-            // 
-            this.shapes.DataSetName = "Shapes";
-            this.shapes.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // shapesTableAdapter
             // 
             this.shapesTableAdapter.ClearBeforeFill = true;
-            // 
-            // aboutToolStripMenuItem
-            // 
-            this.aboutToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.theAppToolStripMenuItem,
-            this.theCreatorOfThisAppToolStripMenuItem});
-            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.aboutToolStripMenuItem.Text = "About";
-            // 
-            // theCreatorOfThisAppToolStripMenuItem
-            // 
-            this.theCreatorOfThisAppToolStripMenuItem.Name = "theCreatorOfThisAppToolStripMenuItem";
-            this.theCreatorOfThisAppToolStripMenuItem.Size = new System.Drawing.Size(200, 22);
-            this.theCreatorOfThisAppToolStripMenuItem.Text = "The Creator Of This App";
-            // 
-            // theAppToolStripMenuItem
-            // 
-            this.theAppToolStripMenuItem.Name = "theAppToolStripMenuItem";
-            this.theAppToolStripMenuItem.Size = new System.Drawing.Size(200, 22);
-            this.theAppToolStripMenuItem.Text = "This App";
             // 
             // Form1
             // 
@@ -573,6 +575,8 @@
             this.Text = "Canvas";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form1_FormClosed);
             this.Load += new System.EventHandler(this.Form1_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.shapesBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.shapes)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.groupBoxQuickSettings.ResumeLayout(false);
@@ -580,8 +584,6 @@
             this.groupBoxDrawingSettings.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarPenSize)).EndInit();
             this.groupBoxSelfGeneratingDesigns.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.shapesBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.shapes)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

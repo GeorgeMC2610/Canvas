@@ -431,7 +431,7 @@ namespace csharp_vathmologoumeni_2
             //καθάρισε το table άμα αυτή είναι η βούληση του χρήστη
             else
             {
-                if (MessageBox.Show("Are you sure you want to CLEAR and DELETE EVERYTHING from the database?\n\nBefore you take any action, be sure about your decision.", "Delete Everything?", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.No)
+                if (MessageBox.Show("Are you sure you want to CLEAR and DELETE EVERYTHING from the database?\n\nBefore you take any action, go to bin/Debug and make a copy of the database. Also, be sure about your decision, as the effects of this cannot be reverted.", "Delete Everything?", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.No)
                     return;
 
                 command = new OleDbCommand("DELETE * FROM Shapes", connection);
@@ -452,12 +452,40 @@ namespace csharp_vathmologoumeni_2
 
         private void selectBackgroundImageToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            //κάθε φορα που ο χρήστης επιλέγει φωτογραφία
             if (openFileDialogCanvas.ShowDialog() == DialogResult.Cancel)
                 return;
 
+            //κάνουμε το background colour άσπρο, και απενεργοποιούμε το κουμπί που αλλάζει το χρώμα της φωτογραφίας, ώστε να μην υπάρχουν bugs
             panel1.BackColor = Color.White;
             buttonSelectBackgroundColour.Enabled = false;
             panel1.BackgroundImage = Image.FromFile(openFileDialogCanvas.FileName);
+        }
+
+        private void About_Click(object sender, EventArgs e)
+        {
+            ToolStripItem clickedItem = (ToolStripItem)sender;
+
+            if (clickedItem == theAppToolStripMenuItem)
+                MessageBox.Show("This app was made in January 2020 as a mandatory-to-publish project in the third semester, to a course called \"Object-Oriented Application Development.\" in University of Piraeus." +
+                    "\n\nThis project is the second one to be announced and had to be created by every student individually, as no teams could be created. The maximum score this project could yield, was 2 (out of 10) points.", "What Is This App?");
+            else
+            {
+                if (MessageBox.Show("This project was made by Georgios Seimenis (R.No.: p19204), Student in University Of Piraeus, Informatics Department." +
+                    "\n\nThe creator has provided a GitHub page. Would you like to be redirected to it?", "Who Created This Project?", MessageBoxButtons.OKCancel) == DialogResult.Cancel)
+                        return;
+
+                //μετάβαση στην σελίδα του GitHub.
+                try
+                {
+                    System.Diagnostics.Process.Start("https://github.com/GeorgeMC2610");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Something went wrong. EXCEPTION MESSAGE: " + ex.Message, "Error");
+                }
+            }
+                
         }
 
         private void BackGroundImageHandling_IndexChanged(object sender, EventArgs e)
