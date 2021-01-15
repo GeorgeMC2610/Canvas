@@ -560,6 +560,9 @@ namespace csharp_vathmologoumeni_2
                     command = new OleDbCommand("INSERT INTO Shapes (Type, Date_Created, Time_Created, Color, Pen_Size) VALUES ('Rectangle', '" + DateTime.Today.ToShortDateString() + "', '" + DateTime.Now.ToShortTimeString() + "', '" + colorDialog1.Color.ToString() + "', '" + trackBarPenSize.Value.ToString() + "')", connection);
                     command.ExecuteNonQuery();
                     break;
+                default:
+                    MessageBox.Show("You forgot to select a drawing mode!\n\nDrawing modes are located in the top-left menu, in the 'Quick Settings' group box.", "Select A Drawing Mode", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    break;
             }
         }
 
